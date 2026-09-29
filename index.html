@@ -4,29 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NEOCLÁSICO PARA BOBOS — Guitar Leader</title>
+<title>NEOCLÁSICO PARA BOBOS — La Peluca Blanca</title>
 
-<!-- CDN -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 
 :root{
-    --bg:#08090c;
-    --bg2:#101217;
+    --bg:#07080b;
+    --bg2:#0e1015;
     --card:#12151b;
-    --card2:#181c24;
-    --text:#e9e9e9;
-    --muted:#9ca3af;
-    --gold:#d6aa55;
-    --gold2:#ffe0a0;
-    --red:#8f2733;
-    --blue:#4c78a8;
+    --card2:#171b22;
     --border:#292e38;
+    --text:#ededed;
+    --muted:#969da8;
+    --gold:#d5aa58;
+    --gold2:#ffe1a0;
+    --red:#8c2936;
+    --ice:#a9d5ff;
+    --green:#7db89b;
 }
 
 *{
@@ -41,157 +40,141 @@ html{
 
 body{
     background:
-        radial-gradient(circle at 50% -20%, #24202a 0%, var(--bg) 45%);
+        radial-gradient(circle at 50% -10%,#29222b 0%,#0a0b0f 38%,#07080b 75%);
     color:var(--text);
-    font-family:Inter, sans-serif;
+    font-family:Inter,sans-serif;
     line-height:1.7;
 }
-
-#particles-js{
-    position:fixed;
-    inset:0;
-    z-index:-1;
-    opacity:.28;
-}
-
-.progress{
-    position:fixed;
-    top:0;
-    left:0;
-    width:0%;
-    height:3px;
-    background:linear-gradient(90deg,var(--red),var(--gold),#fff);
-    z-index:9999;
-}
-
-/* NAV */
 
 nav{
     position:fixed;
     top:0;
     left:0;
     width:100%;
-    z-index:1000;
-    background:rgba(8,9,12,.82);
-    backdrop-filter:blur(15px);
-    border-bottom:1px solid rgba(255,255,255,.06);
+    z-index:100;
+    background:rgba(7,8,11,.88);
+    backdrop-filter:blur(16px);
+    border-bottom:1px solid #20242b;
 }
 
-.nav-inner{
+.nav{
     max-width:1200px;
     margin:auto;
-    padding:12px 20px;
+    padding:12px 18px;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:20px;
 }
 
 .logo{
     font-family:Cinzel;
     color:var(--gold);
-    font-size:14px;
-    letter-spacing:2px;
+    letter-spacing:3px;
+    font-size:13px;
+    white-space:nowrap;
 }
 
-.nav-links{
+.links{
     display:flex;
     gap:15px;
     overflow:auto;
 }
 
-.nav-links a{
-    color:#aaa;
+.links a{
+    color:#999;
+    font-size:11px;
     text-decoration:none;
-    font-size:12px;
     white-space:nowrap;
 }
 
-.nav-links a:hover{
+.links a:hover{
     color:var(--gold);
 }
 
-/* HERO */
+.progress{
+    position:fixed;
+    top:0;
+    left:0;
+    height:3px;
+    width:0%;
+    background:linear-gradient(90deg,var(--red),var(--gold),white);
+    z-index:1000;
+}
 
 .hero{
     min-height:100vh;
+    padding:130px 20px 80px;
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
     text-align:center;
-    padding:100px 20px 60px;
 }
 
-.hero-content{
-    max-width:1000px;
+.hero-inner{
+    max-width:950px;
 }
 
 .eyebrow{
     color:var(--gold);
     letter-spacing:5px;
-    font-size:12px;
-    text-transform:uppercase;
+    font-size:11px;
 }
 
 h1{
     font-family:Cinzel;
-    font-size:clamp(42px,8vw,100px);
+    font-size:clamp(43px,8vw,100px);
     line-height:.95;
     margin:25px 0;
-    background:linear-gradient(
-        120deg,
-        #fff,
-        var(--gold),
-        #fff,
-        #777
-    );
+    background:linear-gradient(120deg,#fff,var(--gold),#777,#fff);
     background-size:300%;
     -webkit-background-clip:text;
     color:transparent;
-    animation:shine 8s infinite linear;
+    animation:shine 8s linear infinite;
 }
 
 @keyframes shine{
-    0%{background-position:0%}
-    100%{background-position:300%}
+    to{
+        background-position:300%;
+    }
 }
 
 .hero p{
-    max-width:720px;
-    margin:auto;
     color:#aaa;
     font-size:18px;
+    max-width:720px;
+    margin:auto;
 }
 
-.quote{
+.hero .quote{
     margin-top:35px;
-    color:var(--gold2);
     font-family:Cinzel;
+    color:var(--gold2);
     font-size:18px;
 }
-
-/* GENERAL */
 
 .container{
     max-width:1100px;
     margin:auto;
-    padding:80px 20px;
+    padding:40px 18px 100px;
 }
 
 .chapter{
-    margin-bottom:100px;
+    margin-bottom:120px;
 }
 
-.chapter-number{
+.number{
     color:var(--red);
     font-family:Cinzel;
-    font-size:14px;
     letter-spacing:4px;
+    font-size:13px;
 }
 
 h2{
     font-family:Cinzel;
-    font-size:clamp(30px,5vw,55px);
-    margin:8px 0 20px;
+    font-size:clamp(32px,5vw,58px);
+    line-height:1.05;
+    margin:10px 0 20px;
 }
 
 h3{
@@ -203,7 +186,7 @@ h3{
 .lead{
     color:#bbb;
     font-size:18px;
-    max-width:800px;
+    max-width:850px;
 }
 
 .grid{
@@ -214,17 +197,10 @@ h3{
 }
 
 .card{
-    background:linear-gradient(145deg,var(--card),#0e1015);
+    background:linear-gradient(145deg,var(--card),#0d0f14);
     border:1px solid var(--border);
     border-radius:16px;
     padding:25px;
-    box-shadow:0 20px 60px rgba(0,0,0,.25);
-}
-
-.card:hover{
-    border-color:#4a4140;
-    transform:translateY(-2px);
-    transition:.25s;
 }
 
 .card p{
@@ -235,185 +211,167 @@ h3{
     color:var(--gold2);
 }
 
-.red{
-    color:#e87883;
+.green{
+    color:var(--green);
 }
 
-.big{
-    font-size:25px;
-    font-family:Cinzel;
-    color:var(--gold);
+.ice{
+    color:var(--ice);
 }
-
-/* FORMULAS */
 
 .formula{
-    margin:25px 0;
-    padding:25px;
+    background:#080a0e;
     border-left:3px solid var(--gold);
-    background:#0c0e12;
+    padding:18px;
+    margin:18px 0;
     font-family:monospace;
-    font-size:18px;
+    font-size:17px;
     overflow:auto;
 }
 
-.note{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-    min-width:42px;
-    height:42px;
-    margin:3px;
-    border:1px solid #414652;
-    border-radius:50%;
-    background:#151922;
-    color:#ddd;
-    cursor:pointer;
+.big{
+    font-family:Cinzel;
+    font-size:26px;
+    color:var(--gold);
 }
 
-.note:hover{
+.exercise{
+    margin:25px 0;
+    padding:25px;
+    background:linear-gradient(145deg,#15181f,#0c0e13);
+    border:1px solid #303640;
+    border-radius:16px;
+}
+
+.exercise-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+button{
+    border:1px solid #665333;
+    background:#15120c;
+    color:var(--gold2);
+    border-radius:8px;
+    padding:9px 15px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+button:hover{
+    background:#282015;
+}
+
+button.playing{
     background:var(--gold);
     color:#111;
 }
 
-/* EXERCISES */
-
-.exercise{
-    background:
-        linear-gradient(135deg,#15171d,#0d0f14);
-    border:1px solid #30343e;
-    border-radius:16px;
-    padding:25px;
-    margin:20px 0;
-    position:relative;
-    overflow:hidden;
-}
-
-.exercise::before{
-    content:"EJERCICIO";
-    position:absolute;
-    top:12px;
-    right:15px;
-    font-size:10px;
-    color:#555;
-    letter-spacing:2px;
-}
-
-.exercise h3{
-    padding-right:80px;
-}
-
-.steps{
-    padding-left:20px;
-    color:#bbb;
-}
-
-.steps li{
-    margin:8px 0;
-}
-
-/* TABS */
-
-.tabs{
+.tab{
+    background:#050608;
+    border:1px solid #242832;
+    border-radius:10px;
+    padding:18px;
+    margin:18px 0;
     overflow-x:auto;
-    background:#07080a;
-    border:1px solid #292d35;
-    border-radius:12px;
-    padding:20px;
-    margin-top:20px;
 }
 
-.tab-row{
-    display:grid;
-    grid-template-columns:80px repeat(12,35px);
-    gap:3px;
-    min-width:550px;
+pre{
+    color:#d7d7d7;
     font-family:monospace;
-    font-size:12px;
+    font-size:14px;
+    line-height:1.65;
+    min-width:650px;
 }
 
-.tab-row span{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    height:30px;
-    border-bottom:1px solid #20242b;
+.tab-note{
+    color:var(--gold2);
 }
 
-.tab-row .string{
-    color:var(--gold);
-    justify-content:flex-start;
-}
-
-/* SCALE BOX */
-
-.scale{
+.note-grid{
     display:grid;
     grid-template-columns:repeat(7,1fr);
-    gap:6px;
+    gap:5px;
     margin:20px 0;
 }
 
-.degree{
-    padding:15px 5px;
+.note-box{
     text-align:center;
-    border:1px solid #30343b;
+    padding:12px 5px;
+    border:1px solid #30343d;
     border-radius:8px;
     background:#11141a;
 }
 
-.degree small{
+.note-box small{
     display:block;
     color:#777;
 }
 
-.degree strong{
+.note-box strong{
     color:var(--gold2);
 }
 
-/* VIVALDI */
-
-.vivaldi{
-    background:
-        radial-gradient(circle at 90% 10%,rgba(150,170,220,.13),transparent 30%),
-        linear-gradient(145deg,#101521,#080a0f);
-    border:1px solid #303b4e;
+.modal-map{
+    overflow-x:auto;
 }
 
-.ice{
-    color:#b7d8ff;
+.modal-table{
+    width:100%;
+    border-collapse:collapse;
+    min-width:650px;
+}
+
+.modal-table th,
+.modal-table td{
+    padding:12px;
+    border-bottom:1px solid #292e36;
+    text-align:center;
+}
+
+.modal-table th{
+    color:var(--gold);
+    font-family:Cinzel;
+}
+
+.modal-table td:first-child{
+    color:#aaa;
+    text-align:left;
+}
+
+.highlight{
+    background:#33291a;
+    color:var(--gold2);
 }
 
 .warning{
     border-left:3px solid var(--red);
-    padding:15px 20px;
-    background:#130d10;
+    padding:18px;
+    background:#160d10;
     color:#bbb;
-    margin:20px 0;
+    margin:25px 0;
 }
-
-/* ACCORDION */
 
 details{
     background:#11141a;
-    border:1px solid #292e37;
+    border:1px solid var(--border);
     border-radius:10px;
-    margin:12px 0;
-    padding:16px 20px;
+    margin:15px 0;
+    padding:17px 20px;
 }
 
 summary{
     cursor:pointer;
-    font-family:Cinzel;
     color:var(--gold);
+    font-family:Cinzel;
 }
 
-/* FOOTER */
-
 footer{
-    text-align:center;
     padding:80px 20px;
-    border-top:1px solid #20242b;
+    border-top:1px solid #20242a;
+    text-align:center;
     color:#666;
 }
 
@@ -421,31 +379,26 @@ footer strong{
     color:var(--gold);
 }
 
-/* MOBILE */
-
 @media(max-width:700px){
 
-    .nav-inner{
+    .nav{
         align-items:flex-start;
     }
 
-    .nav-links{
+    .links{
         max-width:60%;
     }
 
-    .container{
-        padding:60px 15px;
-    }
-
     .hero{
-        padding-top:130px;
+        padding-top:140px;
     }
 
-    .hero p{
-        font-size:16px;
+    .container{
+        padding-left:14px;
+        padding-right:14px;
     }
 
-    .scale{
+    .note-grid{
         grid-template-columns:repeat(4,1fr);
     }
 
@@ -454,59 +407,57 @@ footer strong{
 </style>
 </head>
 
+
 <body>
 
-<div id="particles-js"></div>
-<div class="progress"></div>
-
 <nav>
-    <div class="nav-inner">
 
-        <div class="logo">
-            NEOCLASSICAL
-        </div>
+<div class="nav">
 
-        <div class="nav-links">
-            <a href="#mapa">MAPA</a>
-            <a href="#arpegios">ARPEGIOS</a>
-            <a href="#3nps">3NPS</a>
-            <a href="#metal">METAL</a>
-            <a href="#vivaldi">INVIERNO</a>
-            <a href="#bach">BACH</a>
-            <a href="#laboratorio">LAB</a>
-        </div>
+<div class="logo">
+    NEOCLASSICAL
+</div>
 
-    </div>
+<div class="links">
+    <a href="#3nps">3NPS</a>
+    <a href="#arpegios">ARPEGIOS</a>
+    <a href="#modal">MODAL</a>
+    <a href="#metal">METAL</a>
+    <a href="#vivaldi">VIVALDI</a>
+    <a href="#bach">BACH</a>
+</div>
+
+</div>
+
 </nav>
 
+<div class="progress"></div>
 
-<!-- HERO -->
 
 <section class="hero">
 
-    <div class="hero-content">
+<div class="hero-inner">
 
-        <div class="eyebrow">
-            GUITARRA · PIANO · ARMONÍA · VELOCIDAD
-        </div>
+<div class="eyebrow">
+    GUITARRA · PIANO · BACH · VIVALDI
+</div>
 
-        <h1>
-            NEOCLÁSICO<br>
-            PARA BOBOS
-        </h1>
+<h1>
+    NEOCLÁSICO<br>
+    PARA BOBOS
+</h1>
 
-        <p>
-            Un entrenamiento para dejar de tocar escalas como si fueran
-            ejercicios de gimnasia y empezar a convertirlas en frases,
-            arpegios, secuencias y melodías.
-        </p>
+<p>
+    El curso donde las escalas dejan de ser dibujitos
+    y empiezan a convertirse en frases de guitarrista líder.
+</p>
 
-        <div class="quote">
-            "La escala es el mapa.<br>
-            El arpegio te dice dónde está la casa."
-        </div>
+<div class="quote">
+    "No aprendas el modo.<br>
+    Aprendé qué nota cambia cuando querés otro mundo."
+</div>
 
-    </div>
+</div>
 
 </section>
 
@@ -514,296 +465,544 @@ footer strong{
 <main class="container">
 
 
-<!-- CAPÍTULO 01 -->
-
-<section class="chapter" id="mapa">
-
-    <div class="chapter-number">CAPÍTULO 01</div>
-
-    <h2>La idea central</h2>
-
-    <p class="lead">
-        Si querés ese lenguaje de guitarra líder donde aparecen
-        <span class="gold">tirururutirururu</span>,
-        carreras, arpegios, notas tensas y resolución,
-        no necesitás aprender 400 escalas.
-    </p>
-
-    <div class="grid">
-
-        <div class="card">
-            <div class="big">01</div>
-            <h3>ESCALA</h3>
-            <p>
-                Te da las notas disponibles.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="big">02</div>
-            <h3>ARPEGIO</h3>
-            <p>
-                Te muestra las notas importantes del acorde.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="big">03</div>
-            <h3>SECUENCIA</h3>
-            <p>
-                Convierte pocas notas en una frase rápida.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="big">04</div>
-            <h3>EXPRESIÓN</h3>
-            <p>
-                Bend, vibrato, slides, silencios y dinámica.
-            </p>
-        </div>
-
-    </div>
-
-    <div class="formula">
-        ESCALA → ARPEGIO → SECUENCIA → TENSIÓN → RESOLUCIÓN
-    </div>
-
-</section>
-
-
-<!-- CAPÍTULO 02 -->
-
-<section class="chapter" id="arpegios">
-
-    <div class="chapter-number">CAPÍTULO 02</div>
-
-    <h2>El secreto: 1 · 3 · 5 · 7</h2>
-
-    <p class="lead">
-        Cuando un guitarrista parece que está hablando con la guitarra,
-        muchas veces no está pensando "escala".
-        Está aterrizando sobre notas del acorde.
-    </p>
-
-    <div class="grid">
-
-        <div class="card">
-            <h3>Mayor</h3>
-            <div class="formula">
-                1 · 3 · 5
-            </div>
-            <p>
-                C = C E G
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Menor</h3>
-            <div class="formula">
-                1 · ♭3 · 5
-            </div>
-            <p>
-                Am = A C E
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Dominante</h3>
-            <div class="formula">
-                1 · 3 · 5 · ♭7
-            </div>
-            <p>
-                E7 = E G# B D
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>Menor 7</h3>
-            <div class="formula">
-                1 · ♭3 · 5 · ♭7
-            </div>
-            <p>
-                Am7 = A C E G
-            </p>
-        </div>
-
-    </div>
-
-    <div class="exercise">
-
-        <h3>Ejercicio — Piano</h3>
-
-        <ol class="steps">
-
-            <li>
-                Tocá Am: <span class="gold">A C E</span>.
-            </li>
-
-            <li>
-                Volvé: E C A.
-            </li>
-
-            <li>
-                Tocá Am7: <span class="gold">A C E G</span>.
-            </li>
-
-            <li>
-                Ahora rompé el orden:
-                A E C G C E A.
-            </li>
-
-        </ol>
-
-        <p class="gold">
-            No busques velocidad. Buscá que cada nota tenga peso.
-        </p>
-
-    </div>
-
-
-    <div class="exercise">
-
-        <h3>Ejercicio — Guitarra</h3>
-
-        <p>
-            Tocá un acorde Am.
-            Después buscá únicamente A, C y E alrededor de la posición.
-        </p>
-
-        <div class="formula">
-            A → C → E → C → A
-        </div>
-
-        <p>
-            Después agregá G:
-        </p>
-
-        <div class="formula">
-            A → C → E → G → E → C → A
-        </div>
-
-        <p class="gold">
-            Acabás de empezar a pensar como guitarrista líder.
-        </p>
-
-    </div>
-
-</section>
-
-
 <!-- 3NPS -->
 
 <section class="chapter" id="3nps">
 
-    <div class="chapter-number">CAPÍTULO 03</div>
+<div class="number">CAPÍTULO 01</div>
 
-    <h2>3 notas por cuerda</h2>
+<h2>3 notas por cuerda, ahora sí</h2>
 
-    <p class="lead">
-        Acá empieza la autopista.
-        El sistema de <span class="gold">3NPS</span>
-        (three notes per string) permite construir recorridos largos
-        por el mástil sin quedarte encerrado en una cajita.
-    </p>
-
-    <div class="card">
-
-        <h3>La idea</h3>
-
-        <div class="formula">
-            CUERDA 6 → 3 notas<br>
-            CUERDA 5 → 3 notas<br>
-            CUERDA 4 → 3 notas<br>
-            CUERDA 3 → 3 notas<br>
-            CUERDA 2 → 3 notas<br>
-            CUERDA 1 → 3 notas
-        </div>
-
-        <p>
-            Son 18 posiciones de nota distribuidas verticalmente.
-            Eso permite hacer esas carreras largas que parecen
-            una escalera.
-        </p>
-
-    </div>
+<p class="lead">
+    Vamos a usar <strong>La menor</strong> porque es fácil de visualizar.
+    Esta es una posición real de 3NPS.
+</p>
 
 
-    <div class="exercise">
+<div class="card">
 
-        <h3>Ejercicio 3NPS — La menor</h3>
+<h3>La menor — 3NPS</h3>
 
-        <p>
-            Primero tocá tres notas por cuerda lentamente.
-        </p>
+<div class="tab">
 
-        <div class="tabs">
+<pre>
+e|--5--7--8----------------------------|
+B|--5--6--8----------------------------|
+G|--4--5--7----------------------------|
+D|--5--7--9----------------------------|
+A|--5--7--8----------------------------|
+E|--5--7--8----------------------------|
+</pre>
 
-            <div class="tab-row">
+</div>
 
-                <span class="string">e</span>
-                <span>5</span><span>7</span><span>8</span>
+<p>
+    OJO: acá la idea no es memorizar la forma como un dibujo.
+    Cada cuerda tiene <strong>tres notas</strong>.
+</p>
 
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
+<div class="formula">
+    CUERDA 6 → A B C
+    <br>
+    CUERDA 5 → D E F
+    <br>
+    CUERDA 4 → G A B
+    <br>
+    CUERDA 3 → C D E
+    <br>
+    CUERDA 2 → F G A
+    <br>
+    CUERDA 1 → A B C
+</div>
 
-                <span class="string">B</span>
-                <span>5</span><span>6</span><span>8</span>
+<button onclick="play('aMinor3nps',this)">
+    ▶ ESCUCHAR 3NPS
+</button>
 
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-
-            </div>
-
-        </div>
-
-        <p>
-            Después hacelo al revés.
-        </p>
-
-        <div class="formula">
-            ↑ ↑ ↑ ↓ ↓ ↓
-        </div>
-
-        <p class="gold">
-            El objetivo no es memorizar números.
-            Es sentir dónde está la próxima cuerda.
-        </p>
-
-    </div>
+</div>
 
 
-    <div class="exercise">
+<div class="exercise">
 
-        <h3>El verdadero ejercicio</h3>
+<div class="exercise-title">
 
-        <p>
-            Ahora agrupá las notas.
-        </p>
+<h3>Ejercicio 1 — escalera</h3>
 
-        <div class="formula">
-            1-2-3 · 2-3-4 · 3-4-5 · 4-5-6
-        </div>
+<button onclick="play('ladder',this)">
+▶ ESCUCHAR
+</button>
 
-        <p>
-            Después:
-        </p>
+</div>
 
-        <div class="formula">
-            1-2-3-4 · 2-3-4-5 · 3-4-5-6
-        </div>
+<p>
+    Tocá las tres notas de cada cuerda y saltá a la siguiente.
+</p>
 
-        <p>
-            Esto empieza a generar el clásico:
-        </p>
+<div class="tab">
 
-        <div class="formula">
-            TIRURUTIRURUTIRURUTIRURURU...
-        </div>
+<pre>
+e|-----------------------------5--7--8--|
+B|-------------------5--6--8------------|
+G|-------------4--5--7------------------|
+D|-------5--7--9------------------------|
+A|-5--7--8------------------------------|
+E|--------------------------------------|
+</pre>
 
-    </div>
+</div>
+
+<div class="formula">
+    3 → 3 → 3 → 3 → 3 → 3
+</div>
+
+<p class="gold">
+    Eso es 3NPS. No hay misterio oculto.
+</p>
+
+</div>
+
+
+<div class="exercise">
+
+<div class="exercise-title">
+
+<h3>Ejercicio 2 — tirururutirururu</h3>
+
+<button onclick="play('sequence',this)">
+▶ ESCUCHAR
+</button>
+
+</div>
+
+<p>
+    Ahora no tocamos simplemente 1-2-3.
+    Agrupamos las notas.
+</p>
+
+<div class="formula">
+    1-2-3-4
+    <br>
+    2-3-4-5
+    <br>
+    3-4-5-6
+    <br>
+    4-5-6-7
+</div>
+
+<div class="tab">
+
+<pre>
+e|-----------------------------5-7-8-7-|
+B|-------------------5-6-8-6-5---------|
+G|-------------4-5-7-5-4---------------|
+D|-------5-7-9-7-5---------------------|
+A|-5-7-8-7-5---------------------------|
+E|-------------------------------------|
+</pre>
+
+</div>
+
+<p>
+    Ahí empieza a aparecer el lenguaje de
+    <strong>Vivaldi → Paganini → neoclásico → metal</strong>.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- ARPEGIOS -->
+
+<section class="chapter" id="arpegios">
+
+<div class="number">CAPÍTULO 02</div>
+
+<h2>La escala no manda. El acorde manda.</h2>
+
+<p class="lead">
+    La escala te da las notas.
+    El arpegio te dice cuáles tienen autoridad.
+</p>
+
+
+<div class="grid">
+
+<div class="card">
+
+<h3>Am</h3>
+
+<div class="formula">
+    1 · ♭3 · 5
+    <br>
+    A · C · E
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>Am7</h3>
+
+<div class="formula">
+    1 · ♭3 · 5 · ♭7
+    <br>
+    A · C · E · G
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>E7</h3>
+
+<div class="formula">
+    1 · 3 · 5 · ♭7
+    <br>
+    E · G# · B · D
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>B°7</h3>
+
+<div class="formula">
+    1 · ♭3 · ♭5 · ♭♭7
+    <br>
+    B · D · F · Ab
+</div>
+
+</div>
+
+</div>
+
+
+<div class="exercise">
+
+<div class="exercise-title">
+
+<h3>Ejercicio — arpegio que sube</h3>
+
+<button onclick="play('arpeggio',this)">
+▶ ESCUCHAR
+</button>
+
+</div>
+
+<div class="tab">
+
+<pre>
+e|----------------------5--8--|
+B|-----------------5--8-------|
+G|------------5--7------------|
+D|-------5--7-----------------|
+A|--5--7----------------------|
+E|----------------------------|
+</pre>
+
+</div>
+
+<div class="formula">
+    A → C → E → G → A
+</div>
+
+<p>
+    No estás tocando "La menor".
+    Estás deletreando el acorde.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- MODAL -->
+
+<section class="chapter" id="modal">
+
+<div class="number">CAPÍTULO 03 — EJE CENTRAL</div>
+
+<h2>Intercambio modal</h2>
+
+<p class="lead">
+    Acá está la peluca blanca.
+    La idea no es cambiar de tonalidad:
+    <strong>mantenemos la misma tónica y robamos notas de otros modos.</strong>
+</p>
+
+
+<div class="card">
+
+<h3>La misma casa: A</h3>
+
+<p>
+    Imaginá que estamos siempre alrededor de La.
+    Pero podemos cambiar algunos grados.
+</p>
+
+<div class="modal-map">
+
+<table class="modal-table">
+
+<tr>
+<th>Modo</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+</tr>
+
+<tr>
+<td>A eólico</td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td>G</td>
+</tr>
+
+<tr>
+<td>A dórico</td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td class="highlight">F#</td>
+<td>G</td>
+</tr>
+
+<tr>
+<td>A frigio</td>
+<td>A</td>
+<td class="highlight">Bb</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td>G</td>
+</tr>
+
+<tr>
+<td>A mayor</td>
+<td>A</td>
+<td>B</td>
+<td class="highlight">C#</td>
+<td>D</td>
+<td>E</td>
+<td class="highlight">F#</td>
+<td>G#</td>
+</tr>
+
+<tr>
+<td>A armónica</td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td class="highlight">G#</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+<div class="warning">
+
+<strong>Esto es importantísimo:</strong>
+
+<br><br>
+
+No necesitás pensar:
+
+<br>
+
+"Ahora estoy en Dórico".
+
+<br><br>
+
+Podés pensar:
+
+<br>
+
+"Estoy en La menor y quiero que aparezca F#".
+
+<br><br>
+
+<strong>Ese F# es el color.</strong>
+
+</div>
+
+
+<div class="exercise">
+
+<div class="exercise-title">
+
+<h3>A eólico → A dórico</h3>
+
+<button onclick="play('dorian',this)">
+▶ ESCUCHAR
+</button>
+
+</div>
+
+<div class="formula">
+    A B C D E F G A
+    <br>
+    ↓
+    <br>
+    A B C D E F# G A
+</div>
+
+<p>
+    Solamente cambiaste:
+</p>
+
+<div class="big">
+    F → F#
+</div>
+
+<p>
+    De repente la misma tónica tiene otro carácter.
+</p>
+
+</div>
+
+
+<div class="exercise">
+
+<div class="exercise-title">
+
+<h3>A eólico → A frigio</h3>
+
+<button onclick="play('phrygian',this)">
+▶ ESCUCHAR
+</button>
+
+</div>
+
+<div class="formula">
+    A B C D E F G
+    <br>
+    ↓
+    <br>
+    A Bb C D E F G
+</div>
+
+<p>
+    Solamente:
+</p>
+
+<div class="big">
+    B → Bb
+</div>
+
+<p>
+    Ese semitono A-Bb produce inmediatamente
+    un color oscuro.
+</p>
+
+</div>
+
+
+<div class="exercise">
+
+<div class="exercise-title">
+
+<h3>A eólico → A armónica</h3>
+
+<button onclick="play('harmonic',this)">
+▶ ESCUCHAR
+</button>
+
+</div>
+
+<div class="formula">
+    A B C D E F G
+    <br>
+    ↓
+    <br>
+    A B C D E F G#
+</div>
+
+<p>
+    Solamente:
+</p>
+
+<div class="big">
+    G → G#
+</div>
+
+<p>
+    Y aparece el famoso:
+</p>
+
+<div class="formula">
+    F → G# → A
+</div>
+
+<p class="gold">
+    Esto es uno de los caminos directos hacia el sonido
+    neoclásico.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>El truco de la peluca blanca</h3>
+
+<p>
+    En lugar de tocar una escala de principio a fin:
+</p>
+
+<div class="formula">
+    A B C D E F G
+</div>
+
+<p>
+    pensá:
+</p>
+
+<div class="formula">
+    CASA → COLOR → TENSIÓN → CASA
+</div>
+
+<p>
+    Ejemplo:
+</p>
+
+<div class="formula">
+    A C E
+    →
+    F#
+    →
+    G
+    →
+    G#
+    →
+    A
+</div>
+
+<p class="gold">
+    Ahí empezás a sonar menos a "guitarrista que estudió modos"
+    y más a compositor.
+</p>
+
+</div>
 
 </section>
 
@@ -812,272 +1011,154 @@ footer strong{
 
 <section class="chapter" id="metal">
 
-    <div class="chapter-number">CAPÍTULO 04</div>
+<div class="number">CAPÍTULO 04</div>
 
-    <h2>El ADN del guitarrista metálico</h2>
+<h2>¿Qué hacen los guitarristas metálicos?</h2>
 
-    <p class="lead">
-        Acá está una de las cosas que más confunden:
-        muchos guitarristas no están usando una sola escala.
-        Están cambiando algunos grados para crear tensión.
-    </p>
+<p class="lead">
+    No existe una única receta, pero hay combinaciones
+    extremadamente frecuentes en el vocabulario metal/neoclásico.
+</p>
 
 
-    <div class="card">
+<div class="grid">
 
-        <h3>La madre: menor natural</h3>
+<div class="card">
 
-        <div class="scale">
+<h3>Menor natural</h3>
 
-            <div class="degree"><small>1</small><strong>La</strong></div>
-            <div class="degree"><small>2</small><strong>Si</strong></div>
-            <div class="degree"><small>♭3</small><strong>Do</strong></div>
-            <div class="degree"><small>4</small><strong>Re</strong></div>
-            <div class="degree"><small>5</small><strong>Mi</strong></div>
-            <div class="degree"><small>♭6</small><strong>Fa</strong></div>
-            <div class="degree"><small>♭7</small><strong>Sol</strong></div>
+<div class="formula">
+    1 2 ♭3 4 5 ♭6 ♭7
+</div>
 
-        </div>
+<p>
+    La base oscura.
+</p>
 
-        <div class="formula">
-            A · B · C · D · E · F · G
-        </div>
+</div>
 
-        <p>
-            Esta es la menor natural de La.
-            Ahora empieza la magia.
-        </p>
 
-    </div>
+<div class="card">
 
+<h3>Menor armónica</h3>
 
-    <div class="card">
+<div class="formula">
+    1 2 ♭3 4 5 ♭6 7
+</div>
 
-        <h3>Menor armónica</h3>
+<p>
+    Aparece el G# en La.
+</p>
 
-        <div class="formula">
-            1 · 2 · ♭3 · 4 · 5 · ♭6 · 7
-        </div>
+</div>
 
-        <p>
-            ¿Qué cambió?
-        </p>
 
-        <div class="formula">
-            G → G#
-        </div>
+<div class="card">
 
-        <p>
-            Sol se convirtió en Sol sostenido.
-            Ese pequeño cambio crea una tensión enorme hacia La.
-        </p>
+<h3>Frigio</h3>
 
-        <p class="gold">
-            A B C D E F G# A
-        </p>
+<div class="formula">
+    1 ♭2 ♭3 4 5 ♭6 ♭7
+</div>
 
-    </div>
+<p>
+    Aparece el semitono de entrada.
+</p>
 
+</div>
 
-    <div class="card">
 
-        <h3>¿Por qué suena neoclásico?</h3>
+<div class="card">
 
-        <p>
-            Porque aparece el intervalo:
-        </p>
+<h3>Diminuidos</h3>
 
-        <div class="formula">
-            ♭6 → 7 → 1
-        </div>
+<div class="formula">
+    1 ♭3 ♭5 ♭♭7
+</div>
 
-        <p>
-            En La menor:
-        </p>
+<p>
+    Tensión simétrica.
+</p>
 
-        <div class="formula">
-            F → G# → A
-        </div>
+</div>
 
-        <p class="gold">
-            F → G# → A
-            <br>
-            = tensión → tensión → CASA
-        </p>
+</div>
 
-    </div>
 
+<div class="exercise">
 
-    <details>
+<h3>La mezcla clásica</h3>
 
-        <summary>
-            ¿Y el frigio?
-        </summary>
+<p>
+    Sobre La:
+</p>
 
-        <p>
-            El frigio baja el segundo grado.
-        </p>
+<div class="formula">
+    A B C D E F G
+</div>
 
-        <div class="formula">
-            1 · ♭2 · ♭3 · 4 · 5 · ♭6 · ♭7
-        </div>
+<p>
+    agregá:
+</p>
 
-        <p>
-            En Mi frigio:
-        </p>
+<div class="formula">
+    G#
+</div>
 
-        <div class="formula">
-            E F G A B C D
-        </div>
+<p>
+    y después podés hacer:
+</p>
 
-        <p>
-            El protagonista es:
-        </p>
-
-        <div class="formula">
-            1 → ♭2
-        </div>
-
-        <p class="gold">
-            E → F
-        </p>
-
-        <p>
-            Ese semitono es una de las células más usadas
-            para conseguir un color oscuro.
-        </p>
-
-    </details>
-
-
-    <details>
-
-        <summary>
-            ¿Y la disminuida?
-        </summary>
-
-        <p>
-            Acá entramos directamente en territorio
-            neoclásico.
-        </p>
-
-        <div class="formula">
-            1 · ♭3 · ♭5 · ♭♭7
-        </div>
-
-        <p>
-            Ejemplo:
-        </p>
-
-        <div class="formula">
-            B°7 = B · D · F · Ab
-        </div>
-
-        <p>
-            Y tiene una propiedad hermosa:
-        </p>
-
-        <div class="formula">
-            B → D → F → Ab → B
-        </div>
-
-        <p class="gold">
-            Cada nota está a 3 semitonos de la siguiente.
-        </p>
-
-    </details>
-
-
-    <div class="warning">
-
-        <strong>No pienses:</strong>
-        "Ahora tengo que aprender 15 escalas".
-
-        <br><br>
-
-        Pensá:
-
-        <strong>
-            "Tengo una menor y voy cambiando una nota cuando quiero
-            otro color."
-        </strong>
-
-    </div>
-
-
-    <div class="exercise">
-
-        <h3>Ejercicio metal/neoclásico</h3>
-
-        <p>
-            Tocá La menor natural:
-        </p>
-
-        <div class="formula">
-            A B C D E F G A
-        </div>
-
-        <p>
-            Ahora cambiá únicamente G por G#:
-        </p>
-
-        <div class="formula">
-            A B C D E F G# A
-        </div>
-
-        <p>
-            Después volvé a G:
-        </p>
-
-        <div class="formula">
-            A B C D E F G A
-        </div>
-
-        <p class="gold">
-            No cambiaste de planeta.
-            Cambiaste UN grado.
-        </p>
-
-    </div>
-
-
-    <div class="exercise">
-
-        <h3>Ejercicio "tirururutirururu"</h3>
-
-        <p>
-            Usá solamente:
-        </p>
-
-        <div class="formula">
-            A · B · C · D · E · F · G#
-        </div>
-
-        <p>
-            Hacé grupos de cuatro:
-        </p>
-
-        <div class="formula">
-            A B C D
-            <br>
-            B C D E
-            <br>
-            C D E F
-            <br>
-            D E F G#
-            <br>
-            E F G# A
-        </div>
-
-        <p>
-            Ahora tocá exactamente lo mismo hacia atrás.
-        </p>
-
-        <p class="gold">
-            Ahí aparece la sensación de "máquina neoclásica".
-        </p>
-
-    </div>
+<div class="formula">
+    A → C → E → G#
+</div>
+
+<p>
+    Eso dibuja un arpegio de <strong>A mayor</strong>
+    dentro del contexto de La menor.
+</p>
+
+<p class="gold">
+    ¡Ahí está el intercambio modal / mezcla de colores!
+</p>
+
+</div>
+
+
+<div class="exercise">
+
+<h3>El tirururutirururu definitivo</h3>
+
+<button onclick="play('neoclassical',this)">
+▶ ESCUCHAR
+</button>
+
+<div class="formula">
+    A C E G#
+    ↓
+    B D F G#
+    ↓
+    C E G# A
+    ↓
+    D F G# B
+</div>
+
+<p>
+    No hace falta tocar todas estas notas literalmente.
+    La idea es aprender a combinar:
+</p>
+
+<div class="formula">
+    ESCALA
+    +
+    ARPEGIO
+    +
+    NOTA ALTERADA
+    +
+    SECUENCIA
+</div>
+
+</div>
 
 </section>
 
@@ -1086,186 +1167,122 @@ footer strong{
 
 <section class="chapter" id="vivaldi">
 
-    <div class="chapter-number">CAPÍTULO 05</div>
+<div class="number">CAPÍTULO 05</div>
 
-    <h2 class="ice">Vivaldi — Invierno</h2>
+<h2 class="ice">Vivaldi — Invierno</h2>
 
-    <div class="card vivaldi">
-
-        <h3 class="ice">
-            El laboratorio del frío
-        </h3>
-
-        <p>
-            El movimiento rápido de <strong>Invierno</strong> de
-            <strong>Las cuatro estaciones</strong> es una mina de oro
-            para entender cómo convertir pequeñas células musicales
-            en velocidad.
-        </p>
-
-        <p>
-            No hay que copiarlo nota por nota.
-            Hay que robarle la maquinaria.
-        </p>
-
-    </div>
+<p class="lead">
+    Acá no vamos a estudiar Invierno como una pieza para aprobar
+    conservatorio. Vamos a desmontar la máquina.
+</p>
 
 
-    <div class="grid">
+<div class="card">
 
-        <div class="card">
+<h3 class="ice">
+    ¿Qué hay que robarle?
+</h3>
 
-            <h3>Célula 1</h3>
+<div class="formula">
+    MOTIVO
+    →
+    REPETICIÓN
+    →
+    SECUENCIA
+    →
+    CAMBIO ARMÓNICO
+    →
+    RESOLUCIÓN
+</div>
 
-            <div class="formula">
-                1 · 2 · 3 · 4
-            </div>
+<p>
+    Eso es muchísimo más importante para vos que memorizar
+    200 notas.
+</p>
 
-            <p>
-                Cuatro notas que se pueden repetir,
-                desplazar y secuenciar.
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <h3>Célula 2</h3>
-
-            <div class="formula">
-                1 · 3 · 2 · 4
-            </div>
-
-            <p>
-                Rompé el orden.
-                Ahí empieza a sonar menos a escala.
-            </p>
-
-        </div>
-
-        <div class="card">
-
-            <h3>Célula 3</h3>
-
-            <div class="formula">
-                1 · 2 · 3 · 5
-            </div>
-
-            <p>
-                Salteá una nota.
-                Aparece el sabor arpegiado.
-            </p>
-
-        </div>
-
-    </div>
+</div>
 
 
-    <div class="exercise">
+<div class="exercise">
 
-        <h3>Invierno en piano</h3>
+<div class="exercise-title">
 
-        <p>
-            Poné la mano derecha en una posición cómoda.
-        </p>
+<h3>Vivaldi — célula de práctica</h3>
 
-        <ol class="steps">
+<button onclick="play('vivaldi',this)">
+▶ ESCUCHAR
+</button>
 
-            <li>
-                Elegí una escala menor.
-            </li>
+</div>
 
-            <li>
-                Tocá cuatro notas.
-            </li>
+<div class="formula">
+    1-2-3-4
+    <br>
+    2-3-4-5
+    <br>
+    3-4-5-6
+    <br>
+    4-5-6-7
+</div>
 
-            <li>
-                Repetí el patrón empezando desde la segunda nota.
-            </li>
+<div class="tab">
 
-            <li>
-                Volvé al primer grupo.
-            </li>
+<pre>
+e|--------------------------------5-7-8-10-|
+B|-------------------------5-6-8-----------|
+G|------------------4-5-7-----------------|
+D|-----------5-7-9-------------------------|
+A|----5-7-8--------------------------------|
+E|-5-7-8----------------------------------|
+</pre>
 
-            <li>
-                Aumentá velocidad solamente cuando no haya tensión.
-            </li>
+</div>
 
-        </ol>
+<p>
+    El objetivo es que el patrón continúe subiendo por el mástil.
+</p>
 
-        <div class="formula">
-            1-2-3-4
-            →
-            2-3-4-5
-            →
-            3-4-5-6
-            →
-            4-5-6-7
-        </div>
+<p class="gold">
+    No aceleres hasta que puedas escuchar cada nota.
+</p>
 
-    </div>
-
-
-    <div class="exercise">
-
-        <h3>Invierno en guitarra</h3>
-
-        <p>
-            Ahora convertí la misma idea en 3NPS.
-        </p>
-
-        <div class="formula">
-            CUERDA 6
-            ↓
-            CUERDA 5
-            ↓
-            CUERDA 4
-            ↓
-            CUERDA 3
-            ↓
-            CUERDA 2
-            ↓
-            CUERDA 1
-        </div>
-
-        <p>
-            Cada cuerda es una nueva estación.
-        </p>
-
-        <p class="gold">
-            Tres notas por cuerda + secuencias =
-            autopista para el alternate picking.
-        </p>
-
-    </div>
+</div>
 
 
-    <div class="card">
+<div class="exercise">
 
-        <h3>El verdadero secreto de Vivaldi</h3>
+<h3>Vivaldi + 3NPS</h3>
 
-        <p>
-            No es simplemente "tocar rápido".
-        </p>
+<p>
+    Ahora hacé exactamente la misma lógica pero usando
+    tres notas por cuerda.
+</p>
 
-        <div class="formula">
-            MOTIVO
-            ↓
-            REPETICIÓN
-            ↓
-            DESPLAZAMIENTO
-            ↓
-            TENSIÓN
-            ↓
-            RESOLUCIÓN
-        </div>
+<div class="formula">
+    123 → 234 → 345 → 456
+</div>
 
-        <p>
-            Eso mismo podés llevar a una guitarra con distorsión,
-            delay y un poco de locura.
-        </p>
+<p>
+    Después:
+</p>
 
-    </div>
+<div class="formula">
+    321 → 432 → 543 → 654
+</div>
+
+<p>
+    Y finalmente alterná:
+</p>
+
+<div class="formula">
+    ↑ ↓ ↑ ↓ ↑ ↓
+</div>
+
+<p class="gold">
+    Eso es material directo para alternate picking.
+</p>
+
+</div>
 
 </section>
 
@@ -1274,443 +1291,316 @@ footer strong{
 
 <section class="chapter" id="bach">
 
-    <div class="chapter-number">CAPÍTULO 06</div>
+<div class="number">CAPÍTULO 06</div>
 
-    <h2>Bach en la guitarra</h2>
+<h2>La peluca blanca entra al laboratorio</h2>
 
-    <p class="lead">
-        Bach no es para escuchar sentado mirando al techo.
-        Es una fábrica de frases.
-    </p>
-
-
-    <div class="card">
-
-        <h3>La regla de oro</h3>
-
-        <div class="formula">
-            ROBÁ 4–8 NOTAS
-        </div>
-
-        <p>
-            Después:
-        </p>
-
-        <div class="formula">
-            REPETÍLAS
-            <br>
-            TRANSPONELAS
-            <br>
-            CAMBIÁ EL FINAL
-            <br>
-            METÉ BENDS
-        </div>
-
-        <p class="gold">
-            Y ahora es tu frase.
-        </p>
-
-    </div>
+<p class="lead">
+    Bach es la gran escuela para aprender a hacer que una secuencia
+    parezca inevitable.
+</p>
 
 
-    <div class="exercise">
+<div class="exercise">
 
-        <h3>Bach → guitarra</h3>
+<div class="exercise-title">
 
-        <p>
-            Tocá:
-        </p>
+<h3>Motivo</h3>
 
-        <div class="formula">
-            A → C → B → C
-        </div>
+<button onclick="play('bach',this)">
+▶ ESCUCHAR
+</button>
 
-        <p>
-            Ahora:
-        </p>
+</div>
 
-        <div class="formula">
-            C → E → D → E
-        </div>
+<div class="formula">
+    A → C → B → C
+</div>
 
-        <p>
-            Después:
-        </p>
+<p>
+    Ahora desplazalo:
+</p>
 
-        <div class="formula">
-            E → G → F → G
-        </div>
+<div class="formula">
+    C → E → D → E
+</div>
 
-        <p>
-            Acabás de crear una secuencia.
-        </p>
+<p>
+    Otra vez:
+</p>
 
-        <p class="gold">
-            Ahora acelerala.
-        </p>
+<div class="formula">
+    E → G → F → G
+</div>
 
-    </div>
+<p>
+    No cambiaste la lógica.
+    Cambiaste la altura.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<h3>El descubrimiento</h3>
+
+<p>
+    Esto:
+</p>
+
+<div class="formula">
+    A B C D E F G
+</div>
+
+<p>
+    puede sonar a ejercicio.
+</p>
+
+<p>
+    Pero esto:
+</p>
+
+<div class="formula">
+    A C B C
+    →
+    B D C D
+    →
+    C E D E
+    →
+    D F E F
+</div>
+
+<p class="gold">
+    ya empieza a sonar a composición.
+</p>
+
+</div>
 
 </section>
 
 
-<!-- ARPEGIOS + ESCALAS -->
+<!-- RUTINA -->
 
 <section class="chapter">
 
-    <div class="chapter-number">CAPÍTULO 07</div>
+<div class="number">CAPÍTULO 07</div>
 
-    <h2>Escala + arpegio = idioma</h2>
+<h2>Rutina de 30 minutos</h2>
 
-    <div class="card">
+<div class="grid">
 
-        <p>
-            Supongamos que estamos en La menor.
-        </p>
+<div class="card">
 
-        <div class="formula">
-            ESCALA:
-            A B C D E F G
-        </div>
+<h3>5 min</h3>
 
-        <div class="formula">
-            ARPEGIO:
-            A C E G
-        </div>
+<p>
+    Escala 3NPS.
+</p>
 
-        <p>
-            La escala es todo el vocabulario.
-        </p>
+<div class="formula">
+    lento → limpio
+</div>
 
-        <p>
-            El arpegio son las palabras importantes.
-        </p>
+</div>
 
-    </div>
+<div class="card">
 
+<h3>5 min</h3>
 
-    <div class="exercise">
+<p>
+    Secuencias.
+</p>
 
-        <h3>Ejercicio definitivo</h3>
+<div class="formula">
+    1234
+    <br>
+    2345
+    <br>
+    3456
+</div>
 
-        <p>
-            Tocá una escala rápida.
-        </p>
+</div>
 
-        <p>
-            Cuando llegues al acorde, aterrizá en una nota del arpegio.
-        </p>
+<div class="card">
 
-        <div class="formula">
-            ESCALA → ESCALA → ESCALA → ARPEGIO
-        </div>
+<h3>5 min</h3>
 
-        <p>
-            Por ejemplo:
-        </p>
+<p>
+    Arpegios.
+</p>
 
-        <div class="formula">
-            A B C D E F G
-            →
-            A C E
-        </div>
+<div class="formula">
+    1-3-5-7
+</div>
 
-        <p class="gold">
-            Eso empieza a sonar musical en vez de sonar a ejercicio.
-        </p>
+</div>
 
-    </div>
+<div class="card">
+
+<h3>5 min</h3>
+
+<p>
+    Intercambio modal.
+</p>
+
+<div class="formula">
+    ♭6 → 6
+    <br>
+    ♭2
+    <br>
+    ♭7 → 7
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>5 min</h3>
+
+<p>
+    Vivaldi.
+</p>
+
+<div class="formula">
+    secuencias
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>5 min</h3>
+
+<p>
+    Música.
+</p>
+
+<div class="formula">
+    BEND
+    <br>
+    VIBRATO
+    <br>
+    FRASE
+</div>
+
+</div>
+
+</div>
+
+<div class="warning">
+
+<strong>Regla:</strong>
+
+si después de 30 minutos solamente podés tocar más rápido,
+el ejercicio salió mal.
+
+Si podés tocar una frase que antes no existía,
+salió bien.
+
+</div>
 
 </section>
 
 
-<!-- PIANO -->
+<!-- FINAL -->
 
 <section class="chapter">
 
-    <div class="chapter-number">CAPÍTULO 08</div>
-
-    <h2>El piano como laboratorio</h2>
-
-    <p class="lead">
-        El piano tiene una ventaja brutal:
-        las relaciones entre las notas están a la vista.
-    </p>
-
-    <div class="grid">
-
-        <div class="card">
-
-            <h3>5 minutos</h3>
-
-            <p>
-                Una escala.
-            </p>
-
-            <div class="formula">
-                A B C D E F G
-            </div>
-
-        </div>
-
-        <div class="card">
-
-            <h3>5 minutos</h3>
-
-            <p>
-                Arpegio.
-            </p>
-
-            <div class="formula">
-                A C E G
-            </div>
-
-        </div>
-
-        <div class="card">
-
-            <h3>5 minutos</h3>
-
-            <p>
-                Secuencias.
-            </p>
-
-            <div class="formula">
-                1-2-3-4
-                <br>
-                2-3-4-5
-            </div>
-
-        </div>
-
-        <div class="card">
-
-            <h3>5 minutos</h3>
-
-            <p>
-                Improvisación.
-            </p>
-
-            <div class="formula">
-                ESCALA
-                +
-                ARPEGIO
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- LAB -->
-
-<section class="chapter" id="laboratorio">
-
-    <div class="chapter-number">CAPÍTULO 09</div>
-
-    <h2>Laboratorio del guitarrista líder</h2>
-
-    <div class="exercise">
-
-        <h3>Nivel 1 — Corazón</h3>
-
-        <div class="formula">
-            BEND → VIBRATO → SILENCIO
-        </div>
-
-        <p>
-            Una nota que diga algo.
-        </p>
-
-    </div>
-
-
-    <div class="exercise">
-
-        <h3>Nivel 2 — Escala</h3>
-
-        <div class="formula">
-            3NPS
-        </div>
-
-        <p>
-            Subí y bajá.
-            Sin velocidad todavía.
-        </p>
-
-    </div>
-
-
-    <div class="exercise">
-
-        <h3>Nivel 3 — Secuencia</h3>
-
-        <div class="formula">
-            1-2-3-4
-            →
-            2-3-4-5
-            →
-            3-4-5-6
-        </div>
-
-    </div>
-
-
-    <div class="exercise">
-
-        <h3>Nivel 4 — Arpegio</h3>
-
-        <div class="formula">
-            1-3-5-7
-        </div>
-
-        <p>
-            Aterrizá sobre una nota del acorde.
-        </p>
-
-    </div>
-
-
-    <div class="exercise">
-
-        <h3>Nivel 5 — Neoclásico</h3>
-
-        <div class="formula">
-            MENOR NATURAL
-            →
-            MENOR ARMÓNICA
-            →
-            DISMINUIDA
-        </div>
-
-    </div>
-
-
-    <div class="exercise">
-
-        <h3>Nivel 6 — Velocidad</h3>
-
-        <div class="formula">
-            3NPS
-            +
-            ALTERNATE PICKING
-            +
-            SECUENCIAS
-        </div>
-
-    </div>
-
-
-    <div class="exercise">
-
-        <h3>Nivel 7 — Guitarrista líder</h3>
-
-        <div class="formula">
-            FRASE
-            →
-            CARRERA
-            →
-            ARPEGIO
-            →
-            BEND
-            →
-            VIBRATO
-        </div>
-
-        <p class="gold">
-            Ahí está el equilibrio.
-        </p>
-
-    </div>
-
-</section>
-
-
-<!-- RESUMEN -->
-
-<section class="chapter">
-
-    <div class="chapter-number">FINAL</div>
-
-    <h2>El mapa completo</h2>
-
-    <div class="formula">
-
-        PENTATÓNICA
-        <br>
-        ↓
-        <br>
-        ESCALA MENOR
-        <br>
-        ↓
-        <br>
-        3 NOTAS POR CUERDA
-        <br>
-        ↓
-        <br>
-        SECUENCIAS
-        <br>
-        ↓
-        <br>
-        ARPEGIOS 1·3·5·7
-        <br>
-        ↓
-        <br>
-        MENOR ARMÓNICA
-        <br>
-        ↓
-        <br>
-        DISMINUIDOS
-        <br>
-        ↓
-        <br>
-        BACH + VIVALDI
-        <br>
-        ↓
-        <br>
-        BEND + VIBRATO
-        <br>
-        ↓
-        <br>
-        <strong>GUITARRA LÍDER</strong>
-
-    </div>
-
-    <div class="card">
-
-        <h3>La frase final</h3>
-
-        <p class="lead">
-            No se trata de tocar más notas.
-        </p>
-
-        <p class="big">
-            Se trata de saber qué nota estás tocando,
-            por qué funciona y hacia dónde quiere ir.
-        </p>
-
-        <br>
-
-        <p>
-            Después podés tocarla lenta.
-            Podés tocarla rápida.
-            Podés hacerla con guitarra.
-            Podés hacerla con piano.
-            Podés hacerla triste.
-            Podés hacerla violenta.
-            Podés hacerla hermosa.
-        </p>
-
-        <br>
-
-        <p class="gold">
-            Y ahí dejás de practicar escalas.
-            Empezás a hablar.
-        </p>
-
-    </div>
+<div class="number">EPÍLOGO</div>
+
+<h2>El verdadero mapa</h2>
+
+<div class="formula">
+
+PENTATÓNICA
+<br>
+↓
+<br>
+MENOR
+<br>
+↓
+<br>
+3 NOTAS POR CUERDA
+<br>
+↓
+<br>
+SECUENCIAS
+<br>
+↓
+<br>
+ARPEGIOS 1·3·5·7
+<br>
+↓
+<br>
+INTERCAMBIO MODAL
+<br>
+↓
+<br>
+MENOR ARMÓNICA
+<br>
+↓
+<br>
+DISMINUIDA
+<br>
+↓
+<br>
+VIVALDI
+<br>
+↓
+<br>
+BACH
+<br>
+↓
+<br>
+BEND + VIBRATO
+<br>
+↓
+<br>
+<strong>GUITARRISTA LÍDER</strong>
+
+</div>
+
+<div class="card">
+
+<p class="big">
+    No tenés que aprender todos los modos.
+</p>
+
+<br>
+
+<p>
+    Tenés que aprender a escuchar qué pasa cuando cambiás
+    <strong>una sola nota</strong>.
+</p>
+
+<br>
+
+<p>
+    La menor → F#
+    <br>
+    La menor → Bb
+    <br>
+    La menor → G#
+    <br>
+    La menor → C#
+</p>
+
+<br>
+
+<p class="gold">
+    Misma casa.
+    Distinta luz.
+</p>
+
+<br>
+
+<p>
+    Eso es intercambio modal.
+    Y ahí empieza la peluca blanca.
+</p>
+
+</div>
 
 </section>
 
@@ -1719,121 +1609,381 @@ footer strong{
 
 <footer>
 
-    <p>
-        <strong>NEOCLÁSICO PARA BOBOS</strong>
-    </p>
+<strong>NEOCLÁSICO PARA BOBOS</strong>
 
-    <p>
-        Guitar Leader Laboratory · Piano · Bach · Vivaldi · Arpegios
-    </p>
+<br><br>
+
+Guitarra · Piano · Arpegios · Modos · Vivaldi · Bach
 
 </footer>
 
 
 <script>
 
-/* PARTICULAS */
+/* =========================================================
+   AUDIO ENGINE
+   No necesita archivos externos.
+   Genera las notas directamente con Web Audio.
+========================================================= */
 
-particlesJS("particles-js", {
+let audioContext;
 
-    particles:{
-        number:{
-            value:45,
-            density:{
-                enable:true,
-                value_area:900
-            }
-        },
 
-        color:{
-            value:"#d6aa55"
-        },
+/* Frecuencias */
 
-        opacity:{
-            value:.25
-        },
+const freq = {
 
-        size:{
-            value:2
-        },
+    A2:110,
+    Bb2:116.54,
+    B2:123.47,
+    C3:130.81,
+    Cs3:138.59,
+    D3:146.83,
+    E3:164.81,
+    F3:174.61,
+    Fs3:185.00,
+    G3:196.00,
+    Gs3:207.65,
 
-        line_linked:{
-            enable:true,
-            distance:140,
-            color:"#777777",
-            opacity:.12,
-            width:1
-        },
+    A3:220,
+    Bb3:233.08,
+    B3:246.94,
+    C4:261.63,
+    Cs4:277.18,
+    D4:293.66,
+    E4:329.63,
+    F4:349.23,
+    Fs4:369.99,
+    G4:392,
+    Gs4:415.30,
 
-        move:{
-            enable:true,
-            speed:.5
-        }
-    },
+    A4:440,
+    B4:493.88,
+    C5:523.25,
+    D5:587.33,
+    E5:659.25,
+    F5:698.46,
+    G5:783.99,
+    Gs5:830.61
 
-    interactivity:{
-        events:{
-            onhover:{
-                enable:true,
-                mode:"grab"
-            }
-        },
+};
 
-        modes:{
-            grab:{
-                distance:160,
-                line_linked:{
-                    opacity:.25
-                }
-            }
-        }
-    },
 
-    retina_detect:true
+/* Crear contexto */
 
-});
+function getAudio(){
+
+    if(!audioContext){
+
+        audioContext =
+            new (window.AudioContext ||
+            window.webkitAudioContext)();
+
+    }
+
+    return audioContext;
+
+}
+
+
+/* Tocar una nota */
+
+function playNote(note,time,duration=.22){
+
+    const ctx = getAudio();
+
+    const osc = ctx.createOscillator();
+
+    const gain = ctx.createGain();
+
+    osc.type = "triangle";
+
+    osc.frequency.value = freq[note];
+
+    gain.gain.setValueAtTime(0,time);
+
+    gain.gain.linearRampToValueAtTime(
+        .16,
+        time+.015
+    );
+
+    gain.gain.exponentialRampToValueAtTime(
+        .001,
+        time+duration
+    );
+
+    osc.connect(gain);
+
+    gain.connect(ctx.destination);
+
+    osc.start(time);
+
+    osc.stop(time+duration+.03);
+
+}
+
+
+/* Secuencia */
+
+function sequence(notes,button){
+
+    const ctx = getAudio();
+
+    if(ctx.state === "suspended"){
+        ctx.resume();
+    }
+
+    button.classList.add("playing");
+
+    let time = ctx.currentTime + .05;
+
+    const step = .16;
+
+    notes.forEach(note=>{
+
+        playNote(
+            note,
+            time,
+            .20
+        );
+
+        time += step;
+
+    });
+
+    setTimeout(()=>{
+
+        button.classList.remove("playing");
+
+    },notes.length*step*1000+300);
+
+}
+
+
+/* =========================================================
+   EJERCICIOS
+========================================================= */
+
+const exercises = {
+
+
+/* 3NPS */
+
+aMinor3nps: [
+
+"A2","B2","C3",
+"D3","E3","F3",
+"G3","A3","B3",
+"C4","D4","E4",
+"F4","G4","A4",
+"A4","B4","C5"
+
+],
+
+
+ladder: [
+
+"A2","B2","C3",
+"D3","E3","F3",
+"G3","A3","B3",
+"C4","D4","E4",
+"F4","G4","A4",
+"A4","B4","C5"
+
+],
+
+
+sequence: [
+
+"A2","B2","C3","D3",
+"B2","C3","D3","E3",
+"C3","D3","E3","F3",
+"D3","E3","F3","G3",
+"E3","F3","G3","A3"
+
+],
+
+
+/* ARPEGIO */
+
+arpeggio: [
+
+"A2",
+"C3",
+"E3",
+"G3",
+"A3",
+"G3",
+"E3",
+"C3",
+"A2"
+
+],
+
+
+/* DORIAN */
+
+dorian: [
+
+"A2",
+"B2",
+"C3",
+"D3",
+"E3",
+"Fs3",
+"G3",
+"A3",
+"G3",
+"Fs3",
+"E3",
+"D3",
+"C3",
+"B2",
+"A2"
+
+],
+
+
+/* PHRYGIAN */
+
+phrygian: [
+
+"A2",
+"Bb2",
+"C3",
+"D3",
+"E3",
+"F3",
+"G3",
+"A3",
+"G3",
+"F3",
+"E3",
+"D3",
+"C3",
+"Bb2",
+"A2"
+
+],
+
+
+/* HARMONIC MINOR */
+
+harmonic: [
+
+"A2",
+"B2",
+"C3",
+"D3",
+"E3",
+"F3",
+"Gs3",
+"A3",
+"Gs3",
+"F3",
+"E3",
+"D3",
+"C3",
+"B2",
+"A2"
+
+],
+
+
+/* NEOCLASSICAL */
+
+neoclassical: [
+
+"A3",
+"C4",
+"E4",
+"Gs4",
+
+"B3",
+"D4",
+"F4",
+"Gs4",
+
+"C4",
+"E4",
+"Gs4",
+"A4",
+
+"D4",
+"F4",
+"Gs4",
+"B4",
+
+"A4"
+
+],
+
+
+/* VIVALDI */
+
+vivaldi: [
+
+"A3","B3","C4","D4",
+"B3","C4","D4","E4",
+"C4","D4","E4","F4",
+"D4","E4","F4","G4",
+"E4","F4","G4","A4",
+"G4","F4","E4","D4",
+"F4","E4","D4","C4"
+
+],
+
+
+/* BACH */
+
+bach: [
+
+"A3","C4","B3","C4",
+"B3","D4","C4","D4",
+"C4","E4","D4","E4",
+"D4","F4","E4","F4",
+"E4","G4","F4","G4"
+
+]
+
+};
+
+
+/* Botones */
+
+function play(name,button){
+
+    sequence(
+        exercises[name],
+        button
+    );
+
+}
 
 
 /* BARRA DE PROGRESO */
 
-window.addEventListener("scroll",()=>{
+window.addEventListener(
+    "scroll",
+    ()=>{
 
-    const scrollTop =
-        document.documentElement.scrollTop;
+        const top =
+            document.documentElement.scrollTop;
 
-    const height =
-        document.documentElement.scrollHeight -
-        document.documentElement.clientHeight;
+        const height =
+            document.documentElement.scrollHeight -
+            document.documentElement.clientHeight;
 
-    const porcentaje =
-        (scrollTop / height) * 100;
+        const percent =
+            (top / height) * 100;
 
-    document.querySelector(".progress")
-        .style.width = porcentaje + "%";
+        document.querySelector(
+            ".progress"
+        ).style.width =
+            percent + "%";
 
-});
-
-
-/* NOTAS INTERACTIVAS */
-
-document.querySelectorAll(".note").forEach(nota=>{
-
-    nota.addEventListener("click",()=>{
-
-        nota.animate(
-            [
-                {transform:"scale(1)"},
-                {transform:"scale(1.3)"},
-                {transform:"scale(1)"}
-            ],
-            {
-                duration:300
-            }
-        );
-
-    });
-
-});
+    }
+);
 
 </script>
 
