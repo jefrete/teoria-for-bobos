@@ -1,626 +1,301 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NEOCLÁSICO PARA BOBOS — La Peluca Blanca</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<html lang="es"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Neoclásico para Bobos</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#07080b;--card:#12151b;--border:#292e38;--text:#ededed;--muted:#969da8;--gold:#d5aa58;--gold2:#ffe1a0;--red:#8c2936;--ice:#a9d5ff}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:radial-gradient(circle at 50% -10%,#29222b 0%,#0a0b0f 38%,#07080b 75%);color:var(--text);font-family:Inter,sans-serif;line-height:1.7;padding-bottom:80px}
-nav{position:fixed;top:0;left:0;width:100%;z-index:100;background:rgba(7,8,11,.88);backdrop-filter:blur(16px);border-bottom:1px solid #20242b}
-.nav{max-width:1200px;margin:auto;padding:12px 18px;display:flex;justify-content:space-between;align-items:center;gap:20px}
-.logo{font-family:Cinzel;color:var(--gold);letter-spacing:3px;font-size:13px}
-.links{display:flex;gap:15px;overflow:auto}
-.links a{color:#999;font-size:11px;text-decoration:none;white-space:nowrap}
-.links a:hover{color:var(--gold)}
-.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--red),var(--gold),#fff);z-index:1000}
-.hero{min-height:90vh;padding:130px 20px 80px;display:flex;align-items:center;justify-content:center;text-align:center}
-.hero-inner{max-width:950px}
-.eyebrow{color:var(--gold);letter-spacing:5px;font-size:11px}
-h1{font-family:Cinzel;font-size:clamp(43px,8vw,100px);line-height:.95;margin:25px 0;background:linear-gradient(120deg,#fff,var(--gold),#777,#fff);background-size:300%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 8s linear infinite}
-@keyframes shine{to{background-position:300%}}
-@media(prefers-reduced-motion:reduce){h1{animation:none}}
-.hero p{color:#aaa;font-size:18px;max-width:720px;margin:auto}
-.hero .quote{margin-top:35px;font-family:Cinzel;color:var(--gold2);font-size:18px}
-.container{max-width:1100px;margin:auto;padding:40px 18px 60px}
-.chapter{margin-bottom:110px}
-.number{color:var(--red);font-family:Cinzel;letter-spacing:4px;font-size:13px}
-h2{font-family:Cinzel;font-size:clamp(30px,5vw,54px);line-height:1.05;margin:10px 0 20px}
-h3{font-family:Cinzel;color:var(--gold);margin-bottom:12px}
-.lead{color:#bbb;font-size:18px;max-width:850px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:26px}
-.card,.exercise{background:linear-gradient(145deg,var(--card),#0d0f14);border:1px solid var(--border);border-radius:16px;padding:25px;margin-top:22px}
-.card p,.exercise p{color:#aaa;margin-top:8px}
-.gold{color:var(--gold2)!important}
-.formula{background:#080a0e;border-left:3px solid var(--gold);padding:14px 18px;margin:14px 0;font-family:monospace;font-size:16px;overflow:auto}
-.big{font-family:Cinzel;font-size:24px;color:var(--gold)}
-.row{display:flex;justify-content:space-between;align-items:center;gap:15px;flex-wrap:wrap}
-.btns{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
-button{border:1px solid #665333;background:#15120c;color:var(--gold2);border-radius:8px;padding:9px 15px;cursor:pointer;font-weight:bold;font-family:inherit}
-button:hover{background:#282015}
-button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--gold2);outline-offset:2px}
-button.playing,button.act{background:var(--gold);color:#111}
-select{background:#15120c;color:var(--gold2);border:1px solid #665333;border-radius:8px;padding:8px}
-/* tablatura */
-.tab{display:flex;background:#050608;border:1px solid #242832;border-radius:10px;padding:12px 14px;margin:14px 0;overflow-x:auto;font-family:monospace;font-size:14px}
-.tab i{display:block;height:24px;line-height:24px;min-width:30px;text-align:center;font-style:normal;background:linear-gradient(#4a505c,#4a505c) center/100% 1px no-repeat}
-.tab b{background:#050608;padding:0 3px;color:#e6e6e6;font-weight:600}
-.tab .lb i{min-width:22px;color:var(--muted);background:none;text-align:left}
-.tab .col{cursor:pointer;border-radius:4px}
-.tab .col:hover{background-color:#161a22}
-.tab .hl{background-color:rgba(213,170,88,.2)}
-.tab .hl b{color:var(--gold2);background:#2a2216}
-.hint{color:var(--muted);font-size:13px}
-/* mástil */
-.fbw{overflow-x:auto;padding-bottom:6px}
-.fb{display:grid;grid-template-columns:repeat(13,46px);grid-auto-rows:32px;min-width:600px;background:#0a0c10;border:1px solid #242832;border-radius:8px}
-.fc{display:flex;align-items:center;justify-content:center;border-right:1px solid #2a2f39;background:linear-gradient(#4a505c,#4a505c) center/100% 1px no-repeat}
-#fb .fc:nth-child(13n+1){border-right:4px solid #8a8f99}
-.fn{grid-auto-rows:20px;border:0;background:none}
-.fn span{text-align:center;color:#666;font-size:11px}
-.dot{width:26px;height:26px;border-radius:50%;background:#2a2f39;color:#ddd;font-size:11px;display:flex;align-items:center;justify-content:center;cursor:pointer;user-select:none}
-.dot:hover{outline:2px solid var(--gold2)}
-.dot.r{background:var(--red);color:#fff}
-.dot.d{background:var(--gold);color:#111;font-weight:700}
-.chips{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0}
-.chip{min-width:46px;text-align:center;padding:8px;border:1px solid #30343d;border-radius:8px;background:#11141a;font-family:monospace}
-.chip.d{background:#33291a;color:var(--gold2);border-color:var(--gold)}
-.ans{margin-top:8px;min-height:26px;color:var(--gold2)}
-.chk{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid #20242b;cursor:pointer;color:#bbb}
-.chk input{accent-color:var(--gold);width:18px;height:18px}
-.chk:has(input:checked){text-decoration:line-through;color:#666}
-.warning{border-left:3px solid var(--red);padding:18px;background:#160d10;color:#bbb;margin:25px 0}
-.bar{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(7,8,11,.95);border-top:1px solid #20242b;display:flex;gap:18px;justify-content:center;align-items:center;flex-wrap:wrap;padding:10px;font-size:13px;color:var(--muted)}
-.bar label{display:flex;gap:6px;align-items:center}
-input[type=range]{accent-color:var(--gold)}
-footer{padding:60px 20px;border-top:1px solid #20242a;text-align:center;color:#666}
-footer strong{color:var(--gold)}
-.pn{position:relative;height:104px;margin:6px 0 12px}
+:root{--bg:#faf6ee;--card:#fff;--bd:#e3dac8;--tx:#221d15;--mu:#6f6656;--gold:#9a6a12;--gl:#f3e3bd;--red:#8c2936;--tb:#f4efe4;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#08090c;--card:#13161c;--bd:#2a2f3a;--tx:#ececec;--mu:#98a0ac;--gold:#d5aa58;--gl:#33291a;--tb:#0b0d11}}
+:root[data-theme="dark"]{--bg:#08090c;--card:#13161c;--bd:#2a2f3a;--tx:#ececec;--mu:#98a0ac;--gold:#d5aa58;--gl:#33291a;--tb:#0b0d11}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{background:var(--bg);color:var(--tx);font:16px/1.7 Inter,system-ui,sans-serif;padding-bottom:90px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--bd);display:flex;gap:18px;padding:12px 18px;overflow-x:auto;align-items:center}
+nav b{font:800 13px Cinzel,serif;letter-spacing:3px;color:var(--gold);white-space:nowrap}
+nav a{color:var(--mu);font-size:12px;text-decoration:none;white-space:nowrap}nav a:hover{color:var(--gold)}
+.hero{text-align:center;padding:90px 20px 60px;max-width:900px;margin:auto}
+.ey{color:var(--gold);letter-spacing:4px;font-size:11px;font-weight:600}
+h1{font:800 clamp(40px,9vw,88px)/.95 Cinzel,serif;margin:22px 0;color:var(--gold)}
+.hero p{color:var(--mu);font-size:18px}.q{font:600 18px Cinzel,serif;color:var(--tx)!important;margin-top:28px}
+main{max-width:920px;margin:auto;padding:0 18px}
+section{padding:56px 0;border-top:1px solid var(--bd)}
+.n{color:var(--red);font:600 12px Cinzel,serif;letter-spacing:4px}
+h2{font:800 clamp(26px,5vw,42px)/1.1 Cinzel,serif;margin:8px 0 14px}
+h3{font:600 17px Cinzel,serif;color:var(--gold);margin-bottom:6px}
+.lead{color:var(--mu);font-size:17px;max-width:720px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:22px;margin-top:20px}
+.card p{margin-top:8px;color:var(--mu)}.g{color:var(--gold)!important;font-weight:600}
+.f{background:var(--tb);border-left:3px solid var(--gold);padding:12px 16px;margin:12px 0;font:14px/1.8 ui-monospace,monospace;overflow-x:auto;color:var(--tx)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.bt{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+button{border:1px solid var(--gold);background:transparent;color:var(--gold);border-radius:8px;padding:8px 14px;cursor:pointer;font:600 13px Inter,sans-serif}
+button:hover,button.act,button.playing{background:var(--gold);color:var(--bg)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+select{background:var(--card);color:var(--tx);border:1px solid var(--bd);border-radius:8px;padding:7px}
+.tab{display:flex;background:var(--tb);border:1px solid var(--bd);border-radius:10px;padding:12px;margin:14px 0;overflow-x:auto;font:14px ui-monospace,monospace}
+.tab i{display:block;height:24px;line-height:24px;min-width:30px;text-align:center;font-style:normal;background:linear-gradient(var(--mu),var(--mu)) center/100% 1px no-repeat}
+.tab b{background:var(--tb);padding:0 3px}.lb i{min-width:22px;color:var(--mu);background:none;text-align:left}
+.col{cursor:pointer;border-radius:4px}.col:hover,.hl{background-color:var(--gl)}.hl b{color:var(--gold);background:var(--gl)}
+.hint{color:var(--mu);font-size:13px}
+.fbw{overflow-x:auto}.fb{display:grid;grid-template-columns:repeat(13,44px);grid-auto-rows:32px;min-width:572px;background:var(--tb);border:1px solid var(--bd);border-radius:8px}
+.fc{display:flex;align-items:center;justify-content:center;border-right:1px solid var(--bd);background:linear-gradient(var(--mu),var(--mu)) center/100% 1px no-repeat}
+#fb .fc:nth-child(13n+1){border-right:4px solid var(--mu)}
+.fn{grid-auto-rows:20px;border:0;background:none}.fn span{text-align:center;color:var(--mu);font-size:11px}
+.dot{width:26px;height:26px;border-radius:50%;background:var(--bd);color:var(--tx);font-size:11px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.dot.r{background:var(--red);color:#fff}.dot.d{background:var(--gold);color:var(--bg);font-weight:700}
+.w{border-left:3px solid var(--red);background:var(--card);padding:16px 18px;margin:22px 0;color:var(--mu)}
+.chk{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--bd);cursor:pointer}
+.chk input{accent-color:var(--gold);width:18px;height:18px}.chk:has(input:checked){text-decoration:line-through;color:var(--mu)}
+.bar{position:fixed;bottom:0;left:0;right:0;z-index:9;background:var(--bg);border-top:1px solid var(--bd);display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap;padding:10px 10px calc(10px + env(safe-area-inset-bottom,0px));font-size:13px;color:var(--mu)}
+.bar label{display:flex;gap:6px;align-items:center}input[type=range]{accent-color:var(--gold)}
+nav .x{color:var(--gold);border:1px solid var(--bd);border-radius:20px;padding:3px 10px}nav .x:hover{background:var(--gl)}nav i{width:1px;height:16px;background:var(--bd);flex:none}
+.tab+.fbw{margin-top:-4px}.pn{position:relative;height:104px;margin:8px 0 14px}
 .wk,.bk{position:absolute;top:0;display:flex;align-items:flex-end;justify-content:center;cursor:pointer;user-select:none}
 .wk{width:24px;height:104px;background:#e9e6df;border:1px solid #111;border-radius:0 0 4px 4px;color:#111;font-size:10px;padding-bottom:3px}
 .bk{width:16px;height:64px;background:#15171c;border:1px solid #000;border-radius:0 0 3px 3px;color:#aaa;font-size:9px;z-index:2;padding-bottom:2px}
-.kn.wk{background:#f0d9a3}
-.kn.bk{background:#6b5326;color:#fff}
-.wk.lit,.bk.lit{background:var(--gold);color:#111}
-.dot.lit{background:var(--gold2);color:#111;transform:scale(1.25)}
-</style>
-</head>
-<body>
+.kn.wk{background:#f0d9a3}.kn.bk{background:#6b5326;color:#fff}.wk.lit,.bk.lit{background:var(--gold);color:#111}.dot.lit{background:var(--gold);color:#111;transform:scale(1.25)}
+table{width:100%;border-collapse:collapse;min-width:520px}td,th{padding:8px 10px;border-bottom:1px solid var(--bd);text-align:left}th{color:var(--gold);font-family:Cinzel,serif}.tw{overflow-x:auto;margin-top:12px}
+.gr{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:20px}.gr .card{margin-top:0}
+footer{text-align:center;color:var(--mu);padding:40px 20px;border-top:1px solid var(--bd)}
+</style></head><body>
+<nav><b>NEOCLASSICAL</b><a href="#penta">Pentatónica</a><a href="#nps">3NPS</a><a href="#arp">Arpegios</a><a href="#modal">Modal</a><a href="#lick">Lick</a><a href="#wing">Wing</a><a href="#teoria">Teoría</a><a href="#ejemplos">Ejemplos</a><a href="#lab">Secuencias</a><a href="#rutina">Rutina</a><i></i><a class="x" href="https://jefrete.github.io/armonia.redundante/" target="_blank" rel="noopener">Armonía redundante ↗</a><a class="x" href="https://jefrete.github.io/mapa-armonico/" target="_blank" rel="noopener">Mapa armónico ↗</a><a class="x" href="https://jefrete.github.io/music-ground-control/" target="_blank" rel="noopener">Music Ground Control ↗</a></nav>
+<div class="hero"><div class="ey">GUITARRA · BACH · VIVALDI</div><h1>NEOCLÁSICO<br>PARA BOBOS</h1>
+<p>Donde las escalas dejan de ser dibujitos y se vuelven frases de guitarrista líder.</p>
+<p class="q">“No aprendas el modo. Aprendé qué nota cambia cuando querés otro mundo.”</p>
+<p class="hint" style="margin-top:22px">Cada ejemplo trae tablatura, mástil y piano: tocá cualquier nota para escucharla. Abajo: tempo, loop y bordón.</p></div>
+<main>
+<section id="penta"><div class="ey">PRELUDIO</div><h2>Pentatónica para gente con mucha testosterona</h2>
+<p class="lead">Cinco notas, cero excusas. La base sobre la que se pinta todo lo demás.</p>
+<div class="card"><h3>Las 5 cajas de La</h3><div class="bt" id="pnb"></div><div class="bt" id="ppb"></div>
+<div class="row"><span class="hint">Tocá los números o escuchá la escala.</span><button data-p="pen">▶ ESCUCHAR</button></div>
+<div class="tab" data-t="pen"></div>
+<div class="f">Menor: 1 ♭3 4 5 ♭7 → A C D E G<br>Blues: + ♭5 → A C D E♭ E G<br>Mayor: 1 2 3 5 6 → A B C# E F#</div>
+<p>La pentatónica menor es la menor natural <b>sin el 2.º ni el ♭6</b> (B y F). Sin esos semitonos nada choca: por eso “nunca suena mal”.</p></div>
+<div class="card"><div class="row"><h3>Lick 1 — el bend de estadio</h3><button data-p="l1">▶ ESCUCHAR</button></div><div class="tab" data-t="l1"></div>
+<p><b>b</b> = bend, <b>~</b> = vibrato. Doblá el C hasta el D y bajá por la caja. La boca se abre recién en el bend.</p></div>
+<div class="card"><div class="row"><h3>Lick 2 — riff con nota azul</h3><button data-p="l2">▶ ESCUCHAR</button></div><div class="tab" data-t="l2"></div>
+<p>El E♭ es la nota azul: pasala con actitud, no te quedes a vivir ahí.</p></div></section>
 
-<nav><div class="nav">
-<div class="logo">NEOCLASSICAL</div>
-<div class="links"><a href="#penta">PENTA</a><a href="#3nps">3NPS</a><a href="#arpegios">ARPEGIOS</a><a href="#modal">MODAL</a><a href="#prestados">PRESTADOS</a><a href="#mezcla">MEZCLA</a><a href="#metal">METAL</a><a href="#lab">SECUENCIAS</a><a href="#rutina">RUTINA</a></div>
-</div></nav>
-<div class="progress"></div>
+<section id="nps"><div class="n">CAPÍTULO 01</div><h2>3 notas por cuerda</h2>
+<p class="lead">Elegí la escala o el modo y la cuerda donde cae la tónica (rojo): ves la posición completa en el mástil. Las pentatónicas y el blues también van de a tres notas por cuerda, por eso suben más por el mástil. No memorices un dibujo: memorizá el 3-3-3-3-3-3.</p>
+<div class="card"><div class="bt" id="nsb"></div><div class="bt" id="npb"></div><div class="row"><h3 id="nst">3NPS</h3><button data-p="nps">▶ ESCUCHAR</button></div><div class="tab" data-t="nps"></div>
+<div class="f" id="npf"></div>
+<p class="g">Subilo lento, tempo en 60. Cuando cada nota suene pareja, recién ahí acelerá.</p></div></section>
 
-<section class="hero"><div class="hero-inner">
-<div class="eyebrow">GUITARRA · PIANO · BACH · VIVALDI</div>
-<h1>NEOCLÁSICO<br>PARA BOBOS</h1>
-<p>El curso donde las escalas dejan de ser dibujitos y empiezan a convertirse en frases de guitarrista líder.</p>
-<div class="quote">"No aprendas el modo.<br>Aprendé qué nota cambia cuando querés otro mundo."</div>
-<p class="hint" style="margin-top:28px">Tocá los números de cualquier tablatura para escuchar esa nota. Abajo tenés tempo, loop y bordón.</p>
-</div></section>
+<section id="arp"><div class="n">CAPÍTULO 02</div><h2>La escala no manda. El acorde manda.</h2>
+<p class="lead">La escala te da las notas; el arpegio te dice cuáles tienen autoridad.</p>
+<div class="card"><div class="bt" id="chs"></div><div class="f" id="chf"></div><div class="tab" data-t="arp"></div>
+<div class="bt"><button data-p="arp">▶ ARPEGIO</button><button id="strum">🎸 ACORDE</button></div>
+<p>No estás tocando “La menor”: estás deletreando el acorde. Una nota por cuerda, púa alternada, y sweep si cruzás 3 cuerdas o más.</p></div></section>
 
-<main class="container">
-
-<!-- PENTATÓNICA -->
-<section class="chapter" id="penta">
-<div class="eyebrow">PRELUDIO</div>
-<h2>Pentatónica para gente con mucha testosterona</h2>
-<p class="lead">Cinco notas. Cero excusas. La escala de los que tocan con la boca abierta, la ceja fruncida y el cuello en modo estadio. Y además es la base sobre la que después se pinta todo lo demás.</p>
-<div class="card">
-<h3>Caja 1 de La</h3>
-<div class="btns" id="pnb"></div>
-<div class="row"><p class="hint">Tocá los números o escuchá la escala completa.</p><button data-p="pen">▶ ESCUCHAR</button></div>
-<div class="tab" data-t="pen" data-piano></div>
-<div class="formula">Menor: 1 ♭3 4 5 ♭7 → A C D E G<br>Blues: sumás el ♭5 → A C D E♭ E G<br>Mayor: 1 2 3 5 6 → A B C# E F#</div>
-<p>La pentatónica menor es la menor natural <strong>sin el 2.º ni el ♭6</strong> (B y F en La). Sin esos dos semitonos no hay nota que choque con el acorde, por eso "nunca suena mal". Y por eso la peluca blanca vive justo ahí: en B, F y sus alteraciones.</p>
-</div>
-<div class="exercise">
-<div class="row"><h3>Lick 1 — el bend de estadio</h3><button data-p="l1">▶ ESCUCHAR</button></div>
-<div class="tab" data-t="l1"></div>
-<p>Doblá el C (cuerda 1, traste 8) hasta el D, bajá por la caja y cerrá con vibrato (<strong>b</strong> = bend, <strong>~</strong> = vibrato). Regla: la boca se abre recién en el bend. Si se abre antes, es ansiedad.</p>
-</div>
-<div class="exercise">
-<div class="row"><h3>Lick 2 — riff con nota azul</h3><button data-p="l2">▶ ESCUCHAR</button></div>
-<div class="tab" data-t="l2"></div>
-<p>El E♭ (cuerda 5, traste 6) es la nota azul: pasala con actitud, no te quedes a vivir ahí. Tocá esto sin fruncir la cara y se anula la garantía.</p>
-</div>
-<div class="card">
-<h3>Medidor de boca abierta</h3>
-<p class="big" id="face" style="font-size:20px"></p>
-<p class="hint">Movelo con el tempo de la barra de abajo.</p>
-</div>
-</section>
-
-<!-- 3NPS -->
-<section class="chapter" id="3nps">
-<div class="number">CAPÍTULO 01</div>
-<h2>3 notas por cuerda, ahora sí</h2>
-<p class="lead">Usamos <strong>La menor</strong> (posición en el 5.º traste). Cada cuerda tiene <strong>tres notas</strong>: no memorices un dibujo, memorizá el 3-3-3-3-3-3.</p>
-<div class="card">
-<div class="row"><h3>La menor — 3NPS (sube y baja)</h3><button data-p="nps">▶ ESCUCHAR</button></div>
-<div class="tab" data-t="nps"></div>
-<p class="hint">Debajo de cada tablatura ves el mástil: el punto dorado sigue la nota que suena y el rojo es la tónica. Tocá cualquier punto para oírlo.</p>
-<div class="formula">
-CUERDA 6 → A B C &nbsp;·&nbsp; CUERDA 5 → D E F &nbsp;·&nbsp; CUERDA 4 → G A B<br>
-CUERDA 3 → C D E &nbsp;·&nbsp; CUERDA 2 → F G A &nbsp;·&nbsp; CUERDA 1 → A B C
-</div>
-<p class="gold">Subilo lento, con el tempo en 60. Cuando cada nota suene pareja, recién ahí acelerá.</p>
-</div>
-</section>
-
-<!-- ARPEGIOS -->
-<section class="chapter" id="arpegios">
-<div class="number">CAPÍTULO 02</div>
-<h2>La escala no manda. El acorde manda.</h2>
-<p class="lead">La escala te da las notas. El arpegio te dice cuáles tienen autoridad. Elegí un acorde, mirá la tablatura y escuchalo como arpegio o como acorde.</p>
-<div class="card">
-<div class="btns" id="chs"></div>
-<div class="formula" id="chf"></div>
-<div class="tab" data-t="arp" data-piano></div>
-<div class="btns"><button data-p="arp">▶ ARPEGIO (sube y baja)</button><button id="strum">🎸 ACORDE</button></div>
-<p>No estás tocando "La menor". Estás deletreando el acorde.</p>
-<div class="grid">
-<div class="card"><h3>🎸 Guitarra eléctrica</h3><p>Una nota por cuerda, púa alternada (o sweep si cruzás 3 cuerdas o más). La forma cambia en cada acorde, así que aprendé las notas y no el dibujo. Mirá el mástil: el punto dorado es la nota que suena.</p></div>
-<div class="card"><h3>🎹 Piano</h3><p>Mano derecha con los dedos 1-2-3-5 sobre 1-3-5-7 (el pulgar vuelve a entrar en la octava siguiente) y mano izquierda sosteniendo la fundamental. Apilar terceras es "una tecla sí, una no" dentro de la escala.</p></div>
-</div>
-<p class="hint">Activá "🎹 Piano" en la barra de abajo: guitarra y piano tocan el mismo arpegio a la vez.</p>
-</div>
-</section>
-
-<!-- MODAL -->
-<section class="chapter" id="modal">
-<div class="number">CAPÍTULO 03 — EJE CENTRAL</div>
-<h2>Intercambio modal</h2>
-<p class="lead">Acá está la peluca blanca. No cambiamos de tonalidad: <strong>mantenemos la tónica (La) y robamos notas de otros modos.</strong></p>
-<div class="card">
-<h3>La misma casa: A</h3>
-<div class="btns" id="mb"></div>
-<div class="chips" id="chips"></div>
-<p id="minfo" class="gold"></p>
+<section id="modal"><div class="n">CAPÍTULO 03 · EJE CENTRAL</div><h2>Intercambio modal</h2>
+<p class="lead">Acá está la peluca blanca. Mantenemos la tónica (La) y <b>robamos notas de otros modos</b>.</p>
+<div class="card"><h3>La misma casa: A</h3><div class="bt" id="mb"></div><p id="minfo" class="g"></p>
 <div class="fbw"><div class="fb" id="fb"></div><div class="fb fn" id="fn"></div></div>
-<p class="hint">Rojo = tónica. Dorado = nota que cambia respecto de La eólico. Tocá cualquier punto para oírlo.</p>
-<div class="btns"><button id="pm">▶ ESCUCHAR LA ESCALA</button></div>
-<h3 style="margin-top:18px">Armá tu frase</h3>
-<p class="hint">Cada punto que toques en el mástil se suma a tu frase. Cambiá de modo a mitad de camino y mezclá colores.</p>
-<div class="tab" data-t="ph"></div>
-<div class="btns"><button data-p="ph">▶ ESCUCHAR MI FRASE</button><button id="und">⌫ DESHACER</button><button id="clr">BORRAR</button></div>
-</div>
+<p class="hint">Rojo = tónica. Dorado = nota que cambia respecto de La eólico. Tocá cualquier punto.</p>
+<div class="bt"><button id="pm">▶ ESCUCHAR LA ESCALA</button></div></div>
+<div class="w"><b>Importantísimo:</b> no pienses “estoy en Dórico”. Pensá “estoy en La menor y quiero que aparezca F#”. Ese F# es el color. Con el bordón activado se nota muchísimo más.</div>
+<div class="card"><div class="row"><h3>El camino directo al sonido neoclásico</h3><button data-p="f">▶ ESCUCHAR</button></div><div class="tab" data-t="f"></div>
+<p>F → G# → A: entre F y G# hay 3 semitonos (segunda aumentada), la firma de la menor armónica.</p>
+<div class="f">CASA → COLOR → TENSIÓN → CASA<br>A C E → F# → G → G# → A</div></div></section>
 
-<div class="warning"><strong>Esto es importantísimo:</strong><br><br>
-No pienses "ahora estoy en Dórico". Pensá "estoy en La menor y quiero que aparezca F#". <strong>Ese F# es el color.</strong>
-Con el bordón activado (barra de abajo) el cambio se nota muchísimo más.</div>
+<section id="lick"><div class="n">CAPÍTULO 04</div><h2>El tirururutirururu definitivo</h2>
+<p class="lead">ESCALA + ARPEGIO + NOTA ALTERADA + SECUENCIA.</p>
+<div class="card"><div class="row"><h3>Lick neoclásico</h3><button data-p="lick">▶ ESCUCHAR</button></div><div class="tab" data-t="lick"></div>
+<div class="f">Am(maj7): A C E G# → B°7: B D F G# → C E G# A → D F G# B → A</div>
+<p>El primer bloque es Am(maj7): conserva el C natural, no es La mayor. El segundo (B D F G#) es el diminuido, el acorde de tensión de la menor armónica.</p></div></section>
 
-<div class="exercise">
-<h3>Entrenador de oído</h3>
-<p>Suena una escala sobre el bordón de La. ¿Qué modo es?</p>
-<div class="btns"><button id="mys">🎧 SONAR MODO MISTERIOSO</button><button id="rep">↺ REPETIR</button></div>
-<div class="btns" id="gs"></div>
-<div class="ans" id="ans"></div>
-<p class="hint">Pistas: Bb en el 2.º grado = frigio. F# en el 6.º = dórico. G# en el 7.º = armónica.</p>
-</div>
+<section id="wing"><div class="n">CAPÍTULO 04 · PARTE 2</div><h2>El Mapa del Wing</h2>
+<p class="lead">Cada estilo tiene una nota de <b>reposo</b> (donde descansa el oído) y una nota que <b>wingira</b> (la que se estira hasta resolver). Son tendencias, no reglas, y todo está en intervalos con ejemplo en La.</p>
+<div class="gr">
+<div class="card"><h3>Tónica (1) · el hogar</h3><p>Terminar una frase en ella da conclusión total.</p></div>
+<div class="card"><h3>Tercera (3) · la identidad</h3><p>Mayor: luminosa. Menor: oscura. Sin ella el acorde no es mayor ni menor (como en un power chord).</p></div>
+<div class="card"><h3>Quinta (5) · el soporte</h3><p>Da solidez. En acordes disminuidos o aumentados, su alteración es tan definitoria como la 3ª.</p></div>
+<div class="card"><h3>9ª (=2ª) · brillo</h3><p>Frescura y modernidad. Funciona sobre casi cualquier acorde.</p></div>
+<div class="card"><h3>11ª (=4ª) · aire</h3><p>Sobre un acorde mayor choca con la 3ª: usá la #11 (lidio) o tocala sobre menores y suspendidos.</p></div>
+<div class="card"><h3>13ª (=6ª) · calidez</h3><p>Sonido dulce y jazzero. Sobre acordes menores, la 6ª mayor es el color dórico.</p></div></div>
+<div class="w"><b>6ª mayor o menor:</b> en La, F# (mayor) da dulzura y nostalgia suave; F (menor) da oscuridad, y aparece en la menor natural, la armónica y el frigio.</div>
+<div class="card"><h3>Encontrá tu wing</h3><div class="bt" id="wb"></div><div id="wi"></div>
+<div class="row"><span class="hint">b = bend de tono · b½ = bend de semitono · ~ = vibrato</span><button data-p="wing">▶ ESCUCHAR</button></div>
+<div class="tab" data-t="wing"></div></div></section>
 
-<div class="exercise">
-<div class="row"><h3>El camino directo al sonido neoclásico</h3><button data-p="f">▶ ESCUCHAR</button></div>
-<div class="tab" data-t="f"></div>
-<p>F → G# → A: entre F y G# hay 3 semitonos (segunda aumentada). Ese salto es la firma de la menor armónica.</p>
-</div>
-
-<div class="card">
-<h3>El truco de la peluca blanca</h3>
-<p>En lugar de tocar una escala de principio a fin, pensá:</p>
-<div class="formula">CASA → COLOR → TENSIÓN → CASA<br>A C E → F# → G → G# → A</div>
-<p class="gold">Ahí empezás a sonar menos a "guitarrista que estudió modos" y más a compositor.</p>
-</div>
-</section>
-
-<!-- PRESTADOS -->
-<section class="chapter" id="prestados">
-<div class="number">CAPÍTULO 03 · PARTE 2</div>
-<h2>Acordes prestados y séptimas de otras armonías</h2>
-<p class="lead">El intercambio modal no es solo cambiar notas: también <strong>se piden prestados los acordes</strong>. La tónica sigue siendo La, pero cada acorde puede venir de otro modo con la misma tónica. Y la <strong>séptima</strong> es la nota que le da el sabor al préstamo.</p>
-<div class="card">
-<h3>Acordes con séptima de cada modo</h3>
-<div class="btns" id="cmb"></div>
-<div class="chips" id="cr"></div>
-<p class="hint">Dorado = acorde que no existe en La eólico, o sea un préstamo. Tocá cualquiera.</p>
-</div>
-<div class="grid">
-<div class="card"><h3>E7 y no Em7</h3><p>En La eólico el V es Em7 (E G B D), sin empuje. Con el G# de la armónica queda E7 (E G# B D): un dominante que tira hacia La.</p></div>
-<div class="card"><h3>D7 y no Dm7</h3><p>El F# del dórico vuelve dominante al IV: D F# A C. Suena a blues-rock.</p></div>
-<div class="card"><h3>B♭maj7</h3><p>El ♭II del frigio (Bb D F A). Es el color oscuro y cinematográfico.</p></div>
-<div class="card"><h3>Dmaj7</h3><p>El IV del modo mayor (D F# A C#): abre una ventana luminosa dentro de La menor.</p></div>
-</div>
-<div class="card">
-<h3>¿Qué escala sobre cada acorde prestado?</h3>
-<div class="formula">Am7 → eólico / dórico / frigio (misma casa)<br>D7 → D mixolidio = notas de A dórico<br>B♭maj7 → B♭ lidio = notas de A frigio (y de F mayor)<br>E7 → E frigio dominante = notas de A armónica<br>G#°7 → notas de A armónica</div>
-<p>Es el mismo material visto desde otro acorde: no aprendés escalas nuevas, cambiás desde dónde las mirás.</p>
-</div>
-<div class="card">
-<h3>Progresiones con préstamos</h3>
-<div class="btns" id="pb2"></div>
-<div class="formula" id="pn">Elegí una progresión</div>
-</div>
-</section>
-
-<!-- MEZCLA -->
-<section class="chapter" id="mezcla">
-<div class="number">CAPÍTULO 03 · PARTE 3</div>
-<h2>Mezclá escalas, modos y arpegios</h2>
-<p class="lead">Una frase de líder casi nunca es una sola escala: <strong>sube con una, salta con un arpegio y baja con otra.</strong> Elegí las tres piezas y mirá cómo se ve en la tab, en el mástil y en el piano a la vez.</p>
-<div class="card">
-<div class="btns" id="rcb"></div>
-<div class="row">
-<label class="hint">Sube con <select id="m1"></select></label>
-<label class="hint">Arpegio <select id="m2"></select></label>
-<label class="hint">Baja con <select id="m3"></select></label>
-<button data-p="mix">▶ ESCUCHAR</button></div>
-<div class="tab" data-t="mix" data-piano></div>
-<p class="gold" id="mfo"></p>
-<p>Regla de mezcla: un arpegio combina con una escala cuando sus notas caen adentro de ella. Si cae una afuera, esa nota es el color (o la tensión): usala a propósito y resolvé.</p>
-<div class="formula">PENTATÓNICA + Am7 → seguro<br>BLUES + A7 → C contra C#: el choque blues<br>ARMÓNICA + B°7 → neoclásico<br>FRIGIO + B♭maj7 → oscuro<br>DÓRICO + D7 → luminoso</div>
-<p class="hint">Activá "🎹 Piano" en la barra para escuchar guitarra y piano a la vez.</p>
-</div>
-</section>
-
-<!-- METAL -->
-<section class="chapter" id="metal">
-<div class="number">CAPÍTULO 04</div>
-<h2>¿Qué hacen los guitarristas metálicos?</h2>
-<p class="lead">No hay una única receta, pero estas combinaciones se repiten muchísimo.</p>
-<div class="grid">
-<div class="card"><h3>Menor natural</h3><div class="formula">1 2 ♭3 4 5 ♭6 ♭7</div><p>La base oscura.</p></div>
-<div class="card"><h3>Menor armónica</h3><div class="formula">1 2 ♭3 4 5 ♭6 7</div><p>Aparece el G# en La.</p></div>
-<div class="card"><h3>Frigio</h3><div class="formula">1 ♭2 ♭3 4 5 ♭6 ♭7</div><p>El semitono de entrada.</p></div>
-<div class="card"><h3>Diminuido</h3><div class="formula">1 ♭3 ♭5 ♭♭7</div><p>Tensión simétrica.</p></div>
-</div>
-<div class="exercise">
-<div class="row"><h3>El tirururutirururu definitivo</h3><button data-p="lick">▶ ESCUCHAR</button></div>
-<div class="tab" data-t="lick"></div>
-<div class="formula">Am(maj7): A C E G# → B°7: B D F G# → C E G# A → D F G# B → A</div>
-<p>El primer bloque es un arpegio de <strong>Am(maj7)</strong> (A C E G#): tercera menor con séptima mayor. No es La mayor, porque conserva el C natural. El segundo (B D F G#) es un diminuido, el acorde de tensión de la menor armónica.</p>
-<div class="formula">ESCALA + ARPEGIO + NOTA ALTERADA + SECUENCIA</div>
-</div>
-</section>
-
-<!-- LABORATORIO -->
-<section class="chapter" id="lab">
-<div class="number">CAPÍTULO 05</div>
-<h2 class="ice">Vivaldi y Bach: el laboratorio de secuencias</h2>
-<p class="lead">La máquina es siempre la misma: <strong>MOTIVO → REPETICIÓN → SECUENCIA → CAMBIO ARMÓNICO → RESOLUCIÓN</strong>. Elegí un motivo: se repite subiendo un grado por vez sobre tu 3NPS.</p>
-<div class="card">
-<div class="btns" id="pb"></div>
-<div class="row"><label class="hint">Empezar en la cuerda: <select id="base"><option value="0">6 (grave)</option><option value="3">5</option><option value="6">4</option></select></label><button data-p="seq">▶ ESCUCHAR</button></div>
+<section id="lab"><div class="n">CAPÍTULO 05</div><h2>Vivaldi y Bach: secuencias</h2>
+<p class="lead">MOTIVO → REPETICIÓN → SECUENCIA → CAMBIO ARMÓNICO → RESOLUCIÓN.</p>
+<div class="card"><div class="bt" id="pb"></div>
+<div class="row"><label class="hint">Empezar en la cuerda <select id="base"><option value="0">6 (grave)</option><option value="3">5</option><option value="6">4</option></select></label><button data-p="seq">▶ ESCUCHAR</button></div>
 <div class="tab" data-t="seq"></div>
-<p>El patrón <strong>A C B C</strong> → <strong>B D C D</strong> → <strong>C E D E</strong> es el de Bach: no cambia la lógica, cambia la altura. Esto ya no suena a ejercicio, suena a composición.</p>
-<p class="gold">No aceleres hasta que puedas escuchar cada nota. Ida y vuelta con púa alternada.</p>
-</div>
-</section>
+<p>A C B C → B D C D → C E D E: la lógica es la misma, cambia la altura. Ya no suena a ejercicio, suena a composición.</p></div></section>
 
-<!-- RUTINA -->
-<section class="chapter" id="rutina">
-<div class="number">CAPÍTULO 06</div>
-<h2>Rutina de 30 minutos</h2>
-<div class="card">
-<label class="chk"><input type="checkbox"> 5 min · Escala 3NPS, lento y limpio</label>
+<section id="teoria"><div class="n">CAPÍTULO 06</div><h2>Teoría: del acorde a la frase</h2>
+<p class="lead">No memorices 400 dibujos: <b>acorde → arpegio → movimiento → tensión → resolución</b>.</p>
+<div class="gr"><div class="card"><h3>Escala</h3><p>La pentatónica es la casa: no la abandonamos.</p></div><div class="card"><h3>Arpegio</h3><p>Las notas que definen el acorde.</p></div><div class="card"><h3>Paso</h3><p>Notas que conectan tus objetivos.</p></div><div class="card"><h3>Tensión</h3><p>Cromatismos, disminuidos y notas inestables.</p></div><div class="card"><h3>Secuencia</h3><p>Una idea pequeña desplazada por la escala.</p></div><div class="card"><h3>Corazón</h3><p>Bend, vibrato, silencio y melodía.</p></div></div>
+<div class="f">ESCALA → ARPEGIO → PASO → TENSIÓN → RESOLUCIÓN</div>
+<div class="card"><h3>Arpegios en 4 sabores</h3>
+<div class="f">Mayor 1 3 5 → A C# E<br>Menor 1 ♭3 5 → A C E<br>Dominante 7: 1 3 5 ♭7 → A C# E G<br>Menor 7: 1 ♭3 5 ♭7 → A C E G</div>
+<p>Elegilos en el capítulo 02 (sumé A y A7). Ejercicio: A C E C A, y después A C E G E C A. No busques velocidad: buscá qué nota suena a “casa”.</p></div>
+<div class="card"><div class="row"><h3>Bach · Preludio en Do menor (BWV 847)</h3><button data-p="bach">▶ ESCUCHAR</button></div>
+<div class="tab" data-t="bach"></div>
+<div class="f">C Eb D Eb → Cm<br>Ab F E F → Fm<br>B D F Ab → B°7<br>C G F G · Eb G F G → Cm</div>
+<p>Son figuras <b>didácticas</b> en el lenguaje de ese preludio (Cm → Fm → B°7 → Cm), no una transcripción compás por compás. En Cm, el D es una <b>bordadura</b> de Eb: lo adorna y vuelve. En Fm, E es la sensible que empuja a F. El B°7 es la tensión antes de volver a casa.</p>
+<p class="g">Preguntas: ¿qué acorde suena? ¿cuáles son sus notas importantes? ¿qué nota me lleva hasta ellas?</p></div>
+<div class="card"><h3>El arma secreta: el disminuido</h3><div class="bt" id="dmb"></div><div class="tab" data-t="dim"></div>
+<div class="f">1 ♭3 ♭5 ♭♭7 → B D F Ab<br>B°7 = D°7 = F°7 = Ab°7 (las mismas 4 notas)</div>
+<p>Es simétrico: mover el mismo dibujo 3 trastes da el mismo acorde con otra nota grave. En La menor, B°7 es G#°7 (G# B D F), el vii°7 que empuja a La. También es un G7(♭9) sin la fundamental.</p></div>
+<div class="card"><h3>Corazón</h3><p>Bend, vibrato y silencio le dan sentido a la corrida. La velocidad es un recurso, no el objetivo: si sale sucia, bajá el tempo.</p></div>
+<div class="card"><h3>El laboratorio: obras para robar ideas</h3><div class="tw"><table><tr><th>#</th><th>Obra</th><th>Qué robar</th></tr><tr><td>01</td><td>Bach · BWV 565 (Toccata)</td><td>Arpegios de disminuido</td></tr><tr><td>02</td><td>Bach · BWV 846</td><td>Arpegios encadenados</td></tr><tr><td>03</td><td>Bach · BWV 775</td><td>Secuencias</td></tr><tr><td>04</td><td>Bach · BWV 779</td><td>Imitación y respuesta</td></tr><tr><td>05</td><td>Bach · Chaconne BWV 1004</td><td>Drama</td></tr><tr><td>06</td><td>Bach · BWV 999</td><td>Arpegios oscuros</td></tr><tr><td>07</td><td>Bach · BWV 847</td><td>Patrón + armonía</td></tr><tr><td>08</td><td>Vivaldi · Verano</td><td>Velocidad</td></tr><tr><td>09</td><td>Vivaldi · Invierno</td><td>Tensión</td></tr><tr><td>10</td><td>Paganini · Capricho 24</td><td>Variaciones</td></tr><tr><td>11</td><td>Beethoven · Claro de luna III</td><td>Arpegios</td></tr><tr><td>12</td><td>Beethoven · Patética</td><td>Drama</td></tr><tr><td>13</td><td>Brahms · Danza húngara 5</td><td>Carácter</td></tr><tr><td>14</td><td>Rachmaninov · Op. 3 Nº 2</td><td>Tensión</td></tr><tr><td>15</td><td>Chaikovski · Concierto Nº 1</td><td>Épica</td></tr></table></div></div></section>
+
+<section id="ejemplos"><div class="n">CAPÍTULO 07</div><h2>Ejemplos: quién usa qué</h2>
+<p class="lead">Moby, Daft Punk (Tron), Stravinsky y los arpegios de Strokes, Muse y Giardini di Mirò. Los ejercicios son <b>originales en La menor</b> para ilustrar el recurso: no son transcripciones.</p>
+<div class="card"><div class="bt" id="exb"></div><div id="exi"></div>
+<div class="row"><span class="hint">Tocá cualquier nota de la tab, el mástil o el piano.</span><button data-p="ex">▶ ESCUCHAR</button></div>
+<div class="tab" data-t="ex"></div></div></section>
+
+<section id="rutina"><div class="n">CAPÍTULO 08</div><h2>Rutina de 30 minutos</h2>
+<div class="card"><label class="chk"><input type="checkbox"> 5 min · Escala 3NPS, lento y limpio</label>
 <label class="chk"><input type="checkbox"> 5 min · Secuencias 1234 · 2345 · 3456</label>
 <label class="chk"><input type="checkbox"> 5 min · Arpegios 1-3-5-7</label>
 <label class="chk"><input type="checkbox"> 5 min · Intercambio modal: ♭6→6, ♭2, ♭7→7</label>
-<label class="chk"><input type="checkbox"> 5 min · Vivaldi y Bach (laboratorio)</label>
+<label class="chk"><input type="checkbox"> 5 min · Vivaldi y Bach</label>
 <label class="chk"><input type="checkbox"> 5 min · Música: bend, vibrato, frase</label>
-<p id="rc" class="gold" style="margin-top:14px">0 / 6</p>
-</div>
-<div class="warning"><strong>Regla:</strong> si después de 30 minutos solamente podés tocar más rápido, el ejercicio salió mal. Si podés tocar una frase que antes no existía, salió bien.</div>
-
-<div class="card">
-<p class="big">No tenés que aprender todos los modos.</p>
-<p>Tenés que aprender a escuchar qué pasa cuando cambiás <strong>una sola nota</strong>: La menor → F# · Bb · G# · C#.</p>
-<p class="gold">Misma casa. Distinta luz. Ahí empieza la peluca blanca.</p>
-</div>
-</section>
-
+<p id="rc" class="g" style="margin-top:12px">0 / 6</p></div>
+<div class="w"><b>Regla:</b> si tras 30 minutos solo podés tocar más rápido, salió mal. Si podés tocar una frase que antes no existía, salió bien.</div>
+<div class="card"><h3>No tenés que aprender todos los modos</h3><p>Tenés que escuchar qué pasa cuando cambiás <b>una sola nota</b>: La menor → F# · Bb · G# · C#.</p><p class="g">Misma casa. Distinta luz. Ahí empieza la peluca blanca.</p></div></section>
 </main>
-
-<footer><strong>NEOCLÁSICO PARA BOBOS</strong><br><br>Guitarra · Piano · Arpegios · Modos · Vivaldi · Bach</footer>
-
-<div class="bar">
-<button id="stop">⏹ DETENER</button>
+<footer><b>NEOCLÁSICO PARA BOBOS</b><br>Guitarra · Arpegios · Modos · Vivaldi · Bach</footer>
+<div class="bar"><button id="stop">⏹ DETENER</button>
 <label>Tempo <input type="range" id="bpm" min="40" max="180" value="80"><span id="bv">80</span></label>
-<label><input type="checkbox" id="lp"> Loop</label>
-<label><input type="checkbox" id="sp"> +4 BPM por vuelta</label>
-<label><input type="checkbox" id="mt"> Click</label>
-<label><input type="checkbox" id="pg"> 🎹 Piano</label>
-<label><input type="checkbox" id="dr"> Bordón en La</label>
-</div>
-
+<label><input type="checkbox" id="lp"> Loop</label><label><input type="checkbox" id="pg" checked> 🎹 Piano</label><label><input type="checkbox" id="dr"> Bordón en La</label></div>
 <script>
-/* ===== Motor de audio: notas por cuerda:traste -> frecuencia real ===== */
-const $=id=>document.getElementById(id);
-const OPEN={6:40,5:45,4:50,3:55,2:59,1:64};           // MIDI de cuerdas al aire (E A D G B e)
-const hz=m=>440*2**((m-69)/12);
-const parse=s=>s.split(' ').map(t=>{const r=t.match(/^(\d):(\d+)([bv]?)$/),a=+r[1],b=+r[2];return{s:a,f:b,m:OPEN[a]+b,x:r[3]}});
+const $=id=>document.getElementById(id),OPEN={6:40,5:45,4:50,3:55,2:59,1:64},hz=m=>440*2**((m-69)/12);
+const parse=s=>s.split(' ').map(t=>{const r=t.match(/^(\d):(\d+)([bvh]?)$/),a=+r[1],b=+r[2];return{s:a,f:b,m:OPEN[a]+b,x:r[3]}});
 const up=a=>a.concat(a.slice(0,-1).reverse());
 let ctx,master,timers=[];
-
-function A(){
-  if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)();
-  if(ctx.state==='suspended')ctx.resume();
-  if(!master){master=ctx.createGain();master.gain.value=.9;master.connect(ctx.destination)}
-  return ctx;
-}
-function pluck(m,t,d,x){
-  const c=A(),o=c.createOscillator(),o2=c.createOscillator(),f=c.createBiquadFilter(),g=c.createGain();
-  o.type='sawtooth';o2.type='triangle';o.frequency.value=o2.frequency.value=hz(m);
-  if(x=='b')[o,o2].forEach(q=>{q.frequency.setValueAtTime(hz(m),t+.05);q.frequency.linearRampToValueAtTime(hz(m+2),t+.22)});
-  if(x=='v'){const l=c.createOscillator(),lg=c.createGain();l.frequency.value=5.5;lg.gain.value=28;l.connect(lg);lg.connect(o.detune);lg.connect(o2.detune);l.start(t+.2);l.stop(t+d+.05)}
-  f.type='lowpass';f.frequency.setValueAtTime(3200,t);f.frequency.exponentialRampToValueAtTime(500,t+d);
-  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.13,t+.01);g.gain.exponentialRampToValueAtTime(.001,t+d);
-  o.connect(f);o2.connect(f);f.connect(g);g.connect(master);
-  o.start(t);o2.start(t);o.stop(t+d+.05);o2.stop(t+d+.05);
-}
-function click(t){
-  const c=A(),o=c.createOscillator(),g=c.createGain();
-  o.type='square';o.frequency.value=1500;
-  g.gain.setValueAtTime(.05,t);g.gain.exponentialRampToValueAtTime(.001,t+.04);
-  o.connect(g);g.connect(master);o.start(t);o.stop(t+.05);
-}
-function stop(){
-  timers.forEach(clearTimeout);timers=[];
-  if(master){master.disconnect();master=null}
-  document.querySelectorAll('.hl,.lit').forEach(e=>e.classList.remove('hl','lit'));
-  document.querySelectorAll('button.playing').forEach(b=>b.classList.remove('playing'));
-}
-function play(notes,o={}){
-  stop();
-  const c=A(),st=15/+$('bpm').value,t0=c.currentTime+.06,dur=Math.max(.4,st*3),total=notes.length*st;
-  if(o.btn)o.btn.classList.add('playing');
-  notes.forEach((n,i)=>{
-    pluck(n.m,t0+i*st,n.x?Math.max(dur,.9):dur,n.x);if($('mt').checked&&i%4==0)click(t0+i*st);if($('pg').checked)key(n.m,t0+i*st,dur);
-    if(o.tab)timers.push(setTimeout(()=>{
-      o.tab.querySelectorAll('.hl').forEach(e=>e.classList.remove('hl'));
-      const col=o.tab.children[i+1];if(col)col.classList.add('hl');
-      document.querySelectorAll('.lit').forEach(e=>e.classList.remove('lit'));
-      if(o.tab._fb){const d=o.tab._fb.querySelector('[data-s="'+n.s+'"][data-f="'+n.f+'"]');if(d)d.classList.add('lit')}
-      if(o.tab._pn)o.tab._pn.querySelectorAll('[data-m="'+n.m+'"]').forEach(e=>e.classList.add('lit'))
-    },i*st*1000+60));
-  });
-  if(o.drone||$('dr').checked)[45,52].forEach(m=>{
-    const oc=c.createOscillator(),g=c.createGain();
-    oc.type='sine';oc.frequency.value=hz(m);g.gain.value=.06;
-    oc.connect(g);g.connect(master);oc.start(t0);oc.stop(t0+total+.3);
-  });
-  timers.push(setTimeout(()=>{
-    if(!$('lp').checked)return stop();
-    if($('sp').checked){const b=$('bpm');b.value=Math.min(180,+b.value+4);$('bv').textContent=b.value}
-    play(notes,o);
-  },total*1000+300));
-}
-
-/* ===== Tablatura generada desde datos ===== */
-const NM=['A','Bb','B','C','C#','D','Eb','E','F','F#','G','G#'];
-function key(m,t,d){
-  const c=A(),o=c.createOscillator(),o2=c.createOscillator(),g=c.createGain(),g2=c.createGain();
-  o.type='sine';o2.type='triangle';o.frequency.value=hz(m);o2.frequency.value=hz(m)*2;g2.gain.value=.3;
-  g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.12,t+.005);g.gain.exponentialRampToValueAtTime(.001,t+d*1.5);
-  o.connect(g);o2.connect(g2);g2.connect(g);g.connect(master);o.start(t);o2.start(t);o.stop(t+d*1.5+.05);o2.stop(t+d*1.5+.05);
-}
-function fret(w,notes){
-  if(!notes.length){w.innerHTML='';return}
-  const fs=notes.map(n=>n.f),lo=Math.max(0,Math.min(...fs)-1),hi=Math.max(Math.max(...fs)+1,lo+5),n=hi-lo+1,cols='grid-template-columns:repeat('+n+',46px);min-width:'+n*46+'px';
-  let h='<div class="fb" style="'+cols+'">';
-  for(let s=1;s<=6;s++)for(let f=lo;f<=hi;f++){
-    const x=notes.find(q=>q.s==s&&q.f==f);
-    h+='<div class="fc"'+(f==0?' style="border-right:4px solid #8a8f99"':'')+'>'+(x?'<span class="dot'+(x.m%12==9?' r':'')+'" data-m="'+x.m+'" data-s="'+s+'" data-f="'+f+'">'+NM[((x.m-45)%12+12)%12]+'</span>':'')+'</div>';
-  }
-  w.innerHTML=h+'</div><div class="fb fn" style="'+cols+'">'+Array.from({length:n},(_,i)=>'<span>'+(lo+i)+'</span>').join('')+'</div>';
-  w.onclick=e=>{const d=e.target.closest('.dot');if(d){A();pluck(+d.dataset.m,ctx.currentTime,1)}};
-}
-function piano(w,notes){
-  if(!notes.length){w.innerHTML='';return}
-  const ms=notes.map(n=>n.m),a=Math.floor(Math.min(...ms)/12)*12,b=Math.floor(Math.max(...ms)/12)*12+11,used=new Set(ms);
-  let h='',wc=0;
-  for(let m=a;m<=b;m++){
-    const black=[1,3,6,8,10].includes(m%12),u=used.has(m),lab=u?NM[((m-45)%12+12)%12]:'';
-    if(black)h+='<div class="bk'+(u?' kn':'')+'" data-m="'+m+'" style="left:'+(wc*24-8)+'px">'+lab+'</div>';
-    else{h+='<div class="wk'+(u?' kn':'')+'" data-m="'+m+'" style="left:'+wc*24+'px">'+lab+'</div>';wc++}
-  }
-  w.innerHTML='<div class="pn" style="width:'+wc*24+'px">'+h+'</div>';
-  w.onclick=e=>{const k=e.target.closest('[data-m]');if(k){A();key(+k.dataset.m,ctx.currentTime,1.2)}};
-}
-function tab(el,notes){
-  el.innerHTML='<div class="lb">'+['e','B','G','D','A','E'].map(x=>'<i>'+x+'</i>').join('')+'</div>'+
-    notes.map((n,i)=>'<div class="col" data-i="'+i+'">'+[1,2,3,4,5,6].map(r=>'<i>'+(n.s==r?'<b>'+n.f+(n.x=='b'?'b':n.x=='v'?'~':'')+'</b>':'')+'</i>').join('')+'</div>').join('');
-  el.onclick=e=>{const c=e.target.closest('.col');if(c){A();pluck(notes[c.dataset.i].m,ctx.currentTime,1,notes[c.dataset.i].x)}};
-  if(!el._fb){el._fb=document.createElement('div');el._fb.className='fbw';el.after(el._fb)}
-  fret(el._fb,notes);
-  if(el.dataset.piano!==undefined){
-    if(!el._pn){el._pn=document.createElement('div');el._pn.className='fbw';el._fb.after(el._pn)}
-    piano(el._pn,notes);
-  }
-}
-
-/* ===== Datos ===== */
-const S=parse('6:5 6:7 6:8 5:5 5:7 5:8 4:5 4:7 4:9 3:5 3:7 3:9 2:6 2:8 2:10 1:5 1:7 1:8'); // La menor 3NPS
-const T={
-  nps:up(S),
-  f:parse('1:1 1:4 1:5'),
-  lick:parse('3:2 2:1 1:0 1:4 2:0 2:3 1:1 1:4 2:1 1:0 1:4 1:5 2:3 1:1 1:4 1:7 1:5')
-};
-const CH={
-  'Am':['A · C · E','5:0 5:3 4:2 3:2 2:1 1:0'],
-  'Am7':['A · C · E · G','5:0 5:3 4:2 4:5 3:2 2:1 1:0 1:3'],
-  'E7':['E · G# · B · D','6:0 5:2 4:0 3:1 2:0 1:0'],
-  'B°7':['B · D · F · A♭','5:2 4:0 4:3 3:1 2:0 2:3 1:1']
-};
-const M={
-  eol:['A eólico',[0,2,3,5,7,8,10],'A B C D E F G','La casa: todo natural.'],
-  dor:['A dórico',[0,2,3,5,7,9,10],'A B C D E F# G','Sube el 6.º grado: F → F#.'],
-  fri:['A frigio',[0,1,3,5,7,8,10],'A Bb C D E F G','Baja el 2.º grado: B → Bb. Un semitono oscuro contra la tónica.'],
-  arm:['A menor armónica',[0,2,3,5,7,8,11],'A B C D E F G#','Sube el 7.º grado: G → G#. Aparece la segunda aumentada F → G#.'],
-  may:['A mayor',[0,2,4,5,7,9,11],'A B C# D E F# G#','Suben el 3.º, 6.º y 7.º: C#, F#, G#. Cambia todo el color.']
-};
-const PT={'1-2-3-4':[0,1,2,3],'1-2-3':[0,1,2],'4-3-2-1':[3,2,1,0],'Bach A-C-B-C':[0,2,1,2],'1-3-2-4':[0,2,1,3]};
-
-/* ===== Arpegios ===== */
-function setChord(k){
-  T.arp=up(parse(CH[k][1]));tab(document.querySelector('[data-t=arp]'),T.arp);
-  $('chf').textContent=k+' → '+CH[k][0];
-  document.querySelectorAll('#chs button').forEach(b=>b.classList.toggle('act',b.dataset.c==k));
-}
-Object.keys(CH).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.dataset.c=k;b.onclick=()=>setChord(k);$('chs').appendChild(b)});
-$('strum').onclick=()=>{stop();const c=A(),t=c.currentTime+.05;[...new Set(T.arp.map(n=>n.m))].forEach((m,i)=>pluck(m,t+i*.04,2.4))};
-
-/* ===== Mástil modal ===== */
+function A(){if(!ctx)ctx=new(window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')ctx.resume();if(!master){master=ctx.createGain();master.gain.value=.9;master.connect(ctx.destination)}return ctx}
+function pluck(m,t,d,x){const c=A(),o=c.createOscillator(),o2=c.createOscillator(),f=c.createBiquadFilter(),g=c.createGain();
+o.type='sawtooth';o2.type='triangle';o.frequency.value=o2.frequency.value=hz(m);
+if(x=='b'||x=='h')[o,o2].forEach(q=>{q.frequency.setValueAtTime(hz(m),t+.05);q.frequency.linearRampToValueAtTime(hz(m+(x=='b'?2:1)),t+.22)});
+if(x=='v'){const l=c.createOscillator(),lg=c.createGain();l.frequency.value=5.5;lg.gain.value=28;l.connect(lg);lg.connect(o.detune);lg.connect(o2.detune);l.start(t+.2);l.stop(t+d+.05)}
+f.type='lowpass';f.frequency.setValueAtTime(3200,t);f.frequency.exponentialRampToValueAtTime(500,t+d);
+g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.13,t+.01);g.gain.exponentialRampToValueAtTime(.001,t+d);
+o.connect(f);o2.connect(f);f.connect(g);g.connect(master);o.start(t);o2.start(t);o.stop(t+d+.05);o2.stop(t+d+.05)}
+function stop(){timers.forEach(clearTimeout);timers=[];if(master){master.disconnect();master=null}
+document.querySelectorAll('.hl,.lit').forEach(e=>e.classList.remove('hl','lit'));document.querySelectorAll('button.playing').forEach(b=>b.classList.remove('playing'))}
+function play(notes,o={}){stop();const c=A(),st=15/+$('bpm').value,t0=c.currentTime+.06,dur=Math.max(.4,st*3),total=notes.length*st;
+if(o.btn)o.btn.classList.add('playing');
+notes.forEach((n,i)=>{pluck(n.m,t0+i*st,n.x?Math.max(dur,.9):dur,n.x);if($('pg').checked)key(n.m,t0+i*st,dur);
+if(o.tab)timers.push(setTimeout(()=>{o.tab.querySelectorAll('.hl').forEach(e=>e.classList.remove('hl'));const col=o.tab.children[i+1];if(col)col.classList.add('hl');document.querySelectorAll('.lit').forEach(e=>e.classList.remove('lit'));if(o.tab._fb){const d=o.tab._fb.querySelector('[data-s="'+n.s+'"][data-f="'+n.f+'"]');if(d)d.classList.add('lit')}if(o.tab._pn)o.tab._pn.querySelectorAll('[data-m="'+n.m+'"]').forEach(e=>e.classList.add('lit'))},i*st*1000+60))});
+if($('dr').checked)[45,52].forEach(m=>{const oc=c.createOscillator(),g=c.createGain();oc.type='sine';oc.frequency.value=hz(m);g.gain.value=.06;oc.connect(g);g.connect(master);oc.start(t0);oc.stop(t0+total+.3)});
+timers.push(setTimeout(()=>{if(!$('lp').checked)return stop();play(notes,o)},total*1000+300))}
+const NM=['A','Bb','B','C','C#','D','Eb','E','F','F#','G','G#'],nn=m=>NM[((m-45)%12+12)%12];
+function key(m,t,d){const c=A(),o=c.createOscillator(),o2=c.createOscillator(),g=c.createGain(),g2=c.createGain();o.type='sine';o2.type='triangle';o.frequency.value=hz(m);o2.frequency.value=hz(m)*2;g2.gain.value=.3;
+g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.12,t+.005);g.gain.exponentialRampToValueAtTime(.001,t+d*1.5);o.connect(g);o2.connect(g2);g2.connect(g);g.connect(master);o.start(t);o2.start(t);o.stop(t+d*1.5+.05);o2.stop(t+d*1.5+.05)}
+function fret(w,notes){const fs=notes.map(n=>n.f),lo=Math.max(0,Math.min(...fs)-1),hi=Math.max(Math.max(...fs)+1,lo+5),n=hi-lo+1,cols='grid-template-columns:repeat('+n+',44px);min-width:'+n*44+'px';let h='<div class="fb" style="'+cols+'">';
+for(let s=1;s<=6;s++)for(let f=lo;f<=hi;f++){const x=notes.find(q=>q.s==s&&q.f==f);h+='<div class="fc"'+(f==0?' style="border-right:4px solid var(--mu)"':'')+'>'+(x?'<span class="dot'+(x.m%12==9?' r':'')+'" data-m="'+x.m+'" data-s="'+s+'" data-f="'+f+'">'+nn(x.m)+'</span>':'')+'</div>'}
+w.innerHTML=h+'</div><div class="fb fn" style="'+cols+'">'+Array.from({length:n},(_,i)=>'<span>'+(lo+i)+'</span>').join('')+'</div>';
+w.onclick=e=>{const d=e.target.closest('.dot');if(d){A();pluck(+d.dataset.m,ctx.currentTime,1)}}}
+function piano(w,notes){const ms=notes.map(n=>n.m),a=Math.floor(Math.min(...ms)/12)*12,b=Math.floor(Math.max(...ms)/12)*12+11,used=new Set(ms);let h='',wc=0;
+for(let m=a;m<=b;m++){const bl=[1,3,6,8,10].includes(m%12),u=used.has(m),lab=u?nn(m):'';
+if(bl)h+='<div class="bk'+(u?' kn':'')+'" data-m="'+m+'" style="left:'+(wc*24-8)+'px">'+lab+'</div>';else{h+='<div class="wk'+(u?' kn':'')+'" data-m="'+m+'" style="left:'+wc*24+'px">'+lab+'</div>';wc++}}
+w.innerHTML='<div class="pn" style="width:'+wc*24+'px">'+h+'</div>';w.onclick=e=>{const k=e.target.closest('[data-m]');if(k){A();key(+k.dataset.m,ctx.currentTime,1.2)}}}
+function tab(el,notes){el.innerHTML='<div class="lb">'+['e','B','G','D','A','E'].map(x=>'<i>'+x+'</i>').join('')+'</div>'+
+notes.map((n,i)=>'<div class="col" data-i="'+i+'">'+[1,2,3,4,5,6].map(r=>'<i>'+(n.s==r?'<b>'+n.f+({b:'b',h:'b½',v:'~'}[n.x]||'')+'</b>':'')+'</i>').join('')+'</div>').join('');
+el.onclick=e=>{const c=e.target.closest('.col');if(c){A();const n=notes[c.dataset.i];pluck(n.m,ctx.currentTime,1,n.x)}};
+if(!el._fb){el._fb=document.createElement('div');el._fb.className='fbw';el.after(el._fb);el._pn=document.createElement('div');el._pn.className='fbw';el._fb.after(el._pn)}
+if(notes.length){fret(el._fb,notes);piano(el._pn,notes)}}
+const REL=m=>((m-45)%12+12)%12;
+const NSC={'Mayor (jónico)':[0,2,4,5,7,9,11],'Dórico':[0,2,3,5,7,9,10],'Frigio':[0,1,3,5,7,8,10],'Lidio':[0,2,4,6,7,9,11],'Mixolidio':[0,2,4,5,7,9,10],'Menor (eólico)':[0,2,3,5,7,8,10],'Locrio':[0,1,3,5,6,8,10],'Menor armónica':[0,2,3,5,7,8,11],'Menor melódica':[0,2,3,5,7,9,11],'Pentatónica menor':[0,3,5,7,10],'Pentatónica mayor':[0,2,4,7,9],'Blues':[0,3,5,6,7,10]};
+function gen(pcs,N,fr){const sc=[];for(let m=30;m<110;m++)if(pcs.includes(REL(m)))sc.push(m);const i=sc.indexOf(OPEN[N]+fr),o=[];if(i<0)return null;
+for(let s=6;s>=1;s--)for(let k=0;k<3;k++){const m=sc[i+3*(N-s)+k];if(m==null)return null;const f=m-OPEN[s];if(f<0||f>22)return null;o.push({s,f,m,x:''})}return o}
+function best(pcs,N){let b=null;for(let lo=1;lo>=0&&!b;lo--)for(let fr=0;fr<=22&&!b;fr++){if(REL(OPEN[N]+fr)!=0)continue;const g=gen(pcs,N,fr);if(g&&Math.min(...g.map(n=>n.f))>=lo)b=g}return b}
+let S=best(NSC['Menor (eólico)'],6),ns='Menor (eólico)',np=6;
+const T={nps:up(S),f:parse('1:1 1:4 1:5'),lick:parse('3:2 2:1 1:0 1:4 2:0 2:3 1:1 1:4 2:1 1:0 1:4 1:5 2:3 1:1 1:4 1:7 1:5'),
+l1:parse('1:8b 1:5 2:8 2:5 3:7 3:5 4:7 4:5 5:7v'),l2:parse('6:5 6:5 6:8 5:5 5:6 5:7 6:8 6:5')};
+const q=s=>document.querySelector('[data-t='+s+']');
+const btns=(id,keys,fn,label=k=>k)=>keys.forEach(k=>{const b=document.createElement('button');b.textContent=label(k);b.dataset.k=k;b.onclick=()=>fn(k);$(id).appendChild(b)});
+const act=(id,k)=>document.querySelectorAll('#'+id+' button').forEach(b=>b.classList.toggle('act',b.dataset.k==k));
+/* Pentatónica */
+let pk='Pentatónica menor',pd=0;
+const PK=['Pentatónica menor','Blues (+♭5)','Pentatónica mayor'];
+const pBase=k=>k=='Pentatónica mayor'?[9,11,1,4,6]:[9,0,2,4,7];
+function pStart(k,d){const b=pBase(k);let st=42;while(st%12!=b[d])st++;return st}
+function penGen(k,d){const b=pBase(k),sc=[];for(let m=36;m<100;m++)if(b.includes(m%12))sc.push(m);
+const i=sc.indexOf(pStart(k,d)),o=[];
+for(let s=6;s>=1;s--){const g=[0,1].map(j=>sc[i+2*(6-s)+j]),lo=g[0]-OPEN[s],hi=g[1]-OPEN[s];
+o.push({s,f:lo,m:g[0],x:''});
+if(k[0]=='B')for(let f=lo+1;f<hi;f++)if((OPEN[s]+f)%12==3)o.push({s,f,m:OPEN[s]+f,x:''});
+o.push({s,f:hi,m:g[1],x:''})}return o}
+function setPen(k,d){if(k)pk=k;if(d!==undefined)pd=d;T.pen=up(penGen(pk,pd));tab(q('pen'),T.pen);
+document.querySelectorAll('#pnb button').forEach(x=>x.classList.toggle('act',x.textContent==pk));
+$('ppb').innerHTML='';for(let j=0;j<5;j++){const x=document.createElement('button');x.textContent='Caja '+(j+1)+' · tr. '+(pStart(pk,j)-40);x.classList.toggle('act',j==pd);x.onclick=()=>setPen(null,j);$('ppb').appendChild(x)}}
+PK.forEach(k=>{const x=document.createElement('button');x.textContent=k;x.onclick=()=>setPen(k);$('pnb').appendChild(x)});
+/* Arpegios */
+const CH={'A':['A · C# · E','5:0 5:4 4:2 3:2 2:2 1:0'],'A7':['A · C# · E · G','5:0 5:4 4:2 4:5 3:2 2:2 1:0 1:3'],'Am':['A · C · E','5:0 5:3 4:2 3:2 2:1 1:0'],'Am7':['A · C · E · G','5:0 5:3 4:2 4:5 3:2 2:1 1:0 1:3'],'E7':['E · G# · B · D','6:0 5:2 4:0 3:1 2:0 1:0'],'B°7':['B · D · F · A♭','5:2 4:0 4:3 3:1 2:0 2:3 1:1']};
+function setChord(k){T.arp=up(parse(CH[k][1]));tab(q('arp'),T.arp);$('chf').textContent=k+' → '+CH[k][0];act('chs',k)}
+btns('chs',Object.keys(CH),setChord);
+$('strum').onclick=()=>{stop();const t=A().currentTime+.05;[...new Set(T.arp.map(n=>n.m))].forEach((m,i)=>pluck(m,t+i*.04,2.4))};
+/* Modal */
+const M={eol:['A eólico',[0,2,3,5,7,8,10],'A B C D E F G','La casa: todo natural.'],dor:['A dórico',[0,2,3,5,7,9,10],'A B C D E F# G','Sube el 6.º grado: F → F#.'],
+fri:['A frigio',[0,1,3,5,7,8,10],'A Bb C D E F G','Baja el 2.º grado: B → Bb. Un semitono oscuro contra la tónica.'],
+arm:['A menor armónica',[0,2,3,5,7,8,11],'A B C D E F G#','Sube el 7.º grado: G → G#. Aparece la segunda aumentada.'],
+may:['A mayor',[0,2,4,5,7,9,11],'A B C# D E F# G#','Suben C#, F#, G#. Cambia todo el color.']};
 let mode='eol';
-function scaleNotes(k){const s=[...M[k][1],12].map(x=>({m:57+x}));return s.concat(s.slice(0,-1).reverse())}
-function showMode(k){
-  mode=k;const[,iv,nm,info]=M[k],N=nm.split(' '),E=M.eol[1];let h='';
-  for(let s=1;s<=6;s++)for(let f=0;f<=12;f++){
-    const m=OPEN[s]+f,pc=((m-45)%12+12)%12,i=iv.indexOf(pc);
-    h+='<div class="fc">'+(i<0?'':'<span class="dot'+(i?'':' r')+(E.includes(pc)?'':' d')+'" data-m="'+m+'" data-s="'+s+'" data-f="'+f+'">'+N[i]+'</span>')+'</div>';
-  }
-  $('fb').innerHTML=h;
-  $('fn').innerHTML=Array.from({length:13},(_,f)=>'<span>'+f+'</span>').join('');
-  $('chips').innerHTML=N.map((n,i)=>'<span class="chip'+(iv[i]!=E[i]?' d':'')+'">'+n+'</span>').join('');
-  $('minfo').textContent=M[k][0]+' — '+info;
-  document.querySelectorAll('#mb button').forEach(b=>b.classList.toggle('act',b.dataset.k==k));
-}
-Object.keys(M).forEach(k=>{const b=document.createElement('button');b.textContent=M[k][0];b.dataset.k=k;b.onclick=()=>showMode(k);$('mb').appendChild(b)});
-const ph=[];T.ph=ph;
-const phT=()=>tab(document.querySelector('[data-t=ph]'),ph);
-$('fb').onclick=e=>{
-  const d=e.target.closest('.dot');if(!d)return;
-  A();pluck(+d.dataset.m,ctx.currentTime,1);
-  if(ph.length<32){ph.push({s:+d.dataset.s,f:+d.dataset.f,m:+d.dataset.m});phT()}
-};
-$('und').onclick=()=>{ph.pop();phT()};
-$('clr').onclick=()=>{ph.length=0;phT()};
-$('pm').onclick=e=>play(scaleNotes(mode),{btn:e.currentTarget});
-
-/* ===== Entrenador de oído ===== */
-let mys=null,last=null,sc=[0,0];
-['eol','dor','fri','arm'].forEach(k=>{const b=document.createElement('button');b.textContent=M[k][0];b.onclick=()=>{
-  if(!mys)return;const ok=k==mys;sc[1]++;if(ok)sc[0]++;
-  $('ans').textContent=(ok?'✔ ¡Correcto! ':'✘ Era '+M[mys][0]+'. ')+'Aciertos: '+sc[0]+'/'+sc[1];mys=null};$('gs').appendChild(b)});
-$('mys').onclick=()=>{const ks=['eol','dor','fri','arm'];mys=ks[Math.random()*4|0];last=scaleNotes(mys);play(last,{drone:true});$('ans').textContent='¿Cuál era?'};
-$('rep').onclick=()=>{if(last)play(last,{drone:true})};
-
-/* ===== Laboratorio de secuencias ===== */
+function showMode(k){mode=k;const[,iv,nm,info]=M[k],N=nm.split(' '),E=M.eol[1];let h='';
+for(let s=1;s<=6;s++)for(let f=0;f<=12;f++){const m=OPEN[s]+f,pc=((m-45)%12+12)%12,i=iv.indexOf(pc);
+h+='<div class="fc">'+(i<0?'':'<span class="dot'+(i?'':' r')+(E.includes(pc)?'':' d')+'" data-m="'+m+'">'+N[i]+'</span>')+'</div>'}
+$('fb').innerHTML=h;$('fn').innerHTML=Array.from({length:13},(_,f)=>'<span>'+f+'</span>').join('');
+$('minfo').textContent=M[k][0]+' — '+info;act('mb',k)}
+btns('mb',Object.keys(M),showMode,k=>M[k][0]);
+$('fb').onclick=e=>{const d=e.target.closest('.dot');if(d){A();pluck(+d.dataset.m,ctx.currentTime,1)}};
+$('pm').onclick=e=>{const s=[...M[mode][1],12].map(x=>({m:57+x}));play(s.concat(s.slice(0,-1).reverse()),{btn:e.currentTarget})};
+/* Secuencias */
+const PT={'1-2-3-4':[0,1,2,3],'1-2-3':[0,1,2],'4-3-2-1':[3,2,1,0],'Bach A-C-B-C':[0,2,1,2],'1-3-2-4':[0,2,1,3]};
 let pat='1-2-3-4';
-function mkSeq(){
-  const p=PT[pat],b=+$('base').value,n=[];
-  for(let g=0;g<8;g++)p.forEach(o=>n.push(S[b+g+o]));
-  T.seq=n;tab(document.querySelector('[data-t=seq]'),n);
-  document.querySelectorAll('#pb button').forEach(x=>x.classList.toggle('act',x.textContent==pat));
-}
-Object.keys(PT).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>{pat=k;mkSeq()};$('pb').appendChild(b)});
-$('base').onchange=mkSeq;
-
-/* ===== Pentatónica ===== */
-const PN={
- 'Pentatónica menor':'6:5 6:8 5:5 5:7 4:5 4:7 3:5 3:7 2:5 2:8 1:5 1:8',
- 'Blues (+♭5)':'6:5 6:8 5:5 5:6 5:7 4:5 4:7 3:5 3:7 2:5 2:8 1:5 1:8',
- 'Pentatónica mayor':'6:2 6:5 5:2 5:4 4:2 4:4 3:2 3:4 2:2 2:5 1:2 1:5'
-};
-function setPen(k){
-  T.pen=up(parse(PN[k]));tab(document.querySelector('[data-t=pen]'),T.pen);
-  document.querySelectorAll('#pnb button').forEach(b=>b.classList.toggle('act',b.textContent==k));
-}
-Object.keys(PN).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>setPen(k);$('pnb').appendChild(b)});
-T.l1=parse('1:8b 1:5 2:8 2:5 3:7 3:5 4:7 4:5 5:7v');
-T.l2=parse('6:5 6:5 6:8 5:5 5:6 5:7 6:8 6:5');
-const FC=[[70,'😐','Boca cerrada. Cero riesgo.'],[100,'😬','Apretando los dientes.'],[130,'😮','Boca abierta. Ya estás adentro.'],[160,'😲','Boca muy abierta, ceja fruncida.'],[999,'🤯','Nivel estadio. Cuidá el cuello.']];
-function face(){const v=+$('bpm').value,f=FC.find(x=>v<x[0]);$('face').textContent=f[1]+' '+f[2]}
-
-/* ===== Acordes con séptima por modo ===== */
-function chord(k,i){
-  const iv=M[k][1],N=M[k][2].split(' '),t=[0,1,2,3].map(j=>{const x=i+2*j;return iv[x%7]+(x>=7?12:0)}),r=t.map(v=>v-t[0]);
-  const q={'4,7,11':'maj7','4,7,10':'7','3,7,10':'m7','3,7,11':'m(maj7)','3,6,10':'m7♭5','3,6,9':'°7','4,8,11':'maj7♯5'}[r.slice(1).join()]||'?';
-  return{n:N[i]+q,m:t.map(v=>45+v)};
-}
-const strumAt=(ms,t)=>ms.forEach((m,i)=>pluck(m,t+i*.04,1.6));
-function showCh(k){
-  $('cr').innerHTML='';
-  for(let i=0;i<7;i++){
-    const c=chord(k,i),b=document.createElement('button');
-    b.className='chip'+(c.n!=chord('eol',i).n?' d':'');
-    b.textContent=['I','II','III','IV','V','VI','VII'][i]+' '+c.n;
-    b.onclick=()=>{stop();strumAt(c.m,A().currentTime+.05)};
-    $('cr').appendChild(b);
-  }
-  document.querySelectorAll('#cmb button').forEach(b=>b.classList.toggle('act',b.dataset.k==k));
-}
-Object.keys(M).forEach(k=>{const b=document.createElement('button');b.textContent=M[k][0];b.dataset.k=k;b.onclick=()=>showCh(k);$('cmb').appendChild(b)});
-const PR={
- 'Dórico: IV7':[['eol',0],['dor',3],['eol',0],['dor',3]],
- 'Frigio: ♭IImaj7':[['eol',0],['fri',1],['eol',0],['arm',4]],
- 'Armónica: V7':[['eol',0],['eol',3],['arm',4],['arm',0]],
- 'Diminuido: vii°7':[['eol',0],['eol',3],['arm',6],['arm',0]],
- 'Mayor: IVmaj7':[['eol',0],['may',3],['eol',5],['arm',4]]
-};
-Object.keys(PR).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>{
-  stop();const cs=PR[k].map(([m,i])=>chord(m,i)),t=A().currentTime+.05;
-  $('pn').textContent=cs.map(c=>c.n).join(' → ');
-  cs.forEach((c,i)=>{strumAt(c.m,t+i*1.3);timers.push(setTimeout(()=>{$('pn').innerHTML=cs.map((x,j)=>j==i?'<b class="gold">'+x.n+'</b>':x.n).join(' → ')},i*1300))});
-  timers.push(setTimeout(stop,cs.length*1300+800));
-};$('pb2').appendChild(b)});
-
-/* ===== Laboratorio de mezcla ===== */
-const SC={'Pentatónica menor':[0,3,5,7,10],'Blues':[0,3,5,6,7,10],'Pentatónica mayor':[0,2,4,7,9],'Eólico':M.eol[1],'Dórico':M.dor[1],'Frigio':M.fri[1],'Armónica':M.arm[1],'A mayor':M.may[1]};
-const AR={'Am':[0,3,7],'Am7':[0,3,7,10],'Am(maj7)':[0,3,7,11],'A7':[0,4,7,10],'E7':[7,11,2,5],'B°7':[2,5,8,11],'Dm7':[5,8,0,3],'D7':[5,9,0,3],'Bbmaj7':[1,5,8,0]};
-function place(m){
-  let best=null;
-  for(let s=6;s>=1;s--){const f=m-OPEN[s];if(f>=4&&f<=10&&(!best||Math.abs(f-7)<Math.abs(best.f-7)))best={s,f,m,x:''}}
-  return best||{s:6,f:Math.max(0,m-40),m,x:''};
-}
-function run(iv,a,b){
-  const r=[];for(let m=Math.min(a,b);m<=Math.max(a,b);m++)if(iv.includes(((m-45)%12+12)%12))r.push(m);
-  return a<=b?r:r.reverse();
-}
-function mix(){
-  const s1=SC[$('m1').value],ar=AR[$('m2').value],s2=SC[$('m3').value];
-  const ms=[...run(s1,45,57),...run(ar,60,72),...run(s2,72,57)].filter((m,i,a)=>i==0||m!=a[i-1]);
-  T.mix=ms.map(place);tab(document.querySelector('[data-t=mix]'),T.mix);
-  const msg=(n,s)=>{const o=ar.filter(p=>!s.includes(p)).map(p=>NM[p]);return n+': '+(o.length?'el arpegio sale de la escala en '+o.join(' ')+' (color o tensión)':'todas las notas del arpegio están dentro ✔')};
-  $('mfo').innerHTML=msg('Al subir',s1)+'<br>'+msg('Al bajar',s2);
-}
-const sel=(id,o,d)=>{$(id).innerHTML=Object.keys(o).map(k=>'<option'+(k==d?' selected':'')+'>'+k+'</option>').join('');$(id).onchange=mix};
-sel('m1',SC,'Pentatónica menor');sel('m2',AR,'Am7');sel('m3',SC,'Blues');
-const RC={'Estadio':['Pentatónica menor','Am7','Blues'],'Bluesero':['Blues','A7','Blues'],'Neoclásico':['Armónica','B°7','Armónica'],'Oscuro':['Frigio','Bbmaj7','Frigio'],'Luminoso':['Dórico','D7','Dórico']};
-Object.keys(RC).forEach(k=>{const b=document.createElement('button');b.textContent=k;b.onclick=()=>{['m1','m2','m3'].forEach((id,i)=>{$(id).value=RC[k][i]});mix()};$('rcb').appendChild(b)});
-
-/* ===== Cableado general ===== */
-document.addEventListener('click',e=>{
-  const b=e.target.closest('[data-p]');if(!b||!T[b.dataset.p].length)return;
-  play(T[b.dataset.p],{btn:b,tab:document.querySelector('.tab[data-t="'+b.dataset.p+'"]')});
-});
-$('stop').onclick=stop;
-$('bpm').oninput=()=>{$('bv').textContent=$('bpm').value;face()};
-document.querySelectorAll('.tab[data-t]').forEach(el=>{if(T[el.dataset.t])tab(el,T[el.dataset.t])});
-setChord('Am');showMode('eol');mkSeq();setPen('Pentatónica menor');showCh('arm');face();mix();
-/* Rutina persistente */
-const K='npb-rutina',cks=[...document.querySelectorAll('.chk input')];
-let sv=[];try{sv=JSON.parse(localStorage.getItem(K)||'[]')}catch(e){}
-const upd=()=>{$('rc').textContent=cks.filter(c=>c.checked).length+' / 6'};
-cks.forEach((c,i)=>{c.checked=!!sv[i];c.onchange=()=>{upd();try{localStorage.setItem(K,JSON.stringify(cks.map(x=>x.checked)))}catch(e){}}});
-upd();
-
-/* Capítulo activo en el menú y atajo Esc */
-const io=new IntersectionObserver(es=>es.forEach(e=>{
-  if(e.isIntersecting)document.querySelectorAll('.links a').forEach(a=>{a.style.color=a.getAttribute('href')=='#'+e.target.id?'var(--gold)':''});
-}),{rootMargin:'-40% 0px -55% 0px'});
-document.querySelectorAll('.chapter[id]').forEach(c=>io.observe(c));
+function mkSeq(){const p=PT[pat],b=+$('base').value,n=[];for(let g=0;g<8;g++)p.forEach(o=>n.push(S[b+g+o]));T.seq=n;tab(q('seq'),n);act('pb',pat)}
+btns('pb',Object.keys(PT),k=>{pat=k;mkSeq()});$('base').onchange=mkSeq;
+function setNps(N,k){if(k)ns=k;if(N)np=N;const g=best(NSC[ns],np);
+if(!g){$('npf').textContent='Con la tónica en la cuerda '+np+' esta escala se pasa del mástil: probá otra cuerda.';return}
+T.nps=up(g);tab(q('nps'),T.nps);act('npb',np);act('nsb',ns);$('nst').textContent='A '+ns.toLowerCase()+' — 3NPS (sube y baja)';let h='';
+for(let s=6;s>=1;s--){const c=g.filter(n=>n.s==s);h+='CUERDA '+s+' → '+c.map(n=>NM[REL(n.m)]).join(' ')+' <span class="hint">(trastes '+c.map(n=>n.f).join('-')+')</span><br>'}
+$('npf').innerHTML=h;S=best(NSC[ns],6)||S;mkSeq()}
+btns('nsb',Object.keys(NSC),k=>setNps(null,k));
+btns('npb',[6,5,4,3,2,1],N=>setNps(N),k=>'Tónica en cuerda '+k);
+/* Wing */
+const WG={
+slash:['Slash','b3','b3 → 3ª mayor (medio tono)','Bend lento con vibrato ancho','Suspiro, whiskey','En La: C → C#. Doblá el C (1ª cuerda, traste 8) medio tono, sostenelo y soltalo.','1:5 1:8h 1:8 2:8 2:5'],
+satriani:['Satriani','#4 y 7M (colores lidios)','#4 → 5ª (medio tono)','Bend corto o palanca, armónicos','Espacio, futuro','En La: D# → E dentro de A lidio (A B C# D# E F# G#). También cierra en la tónica.','3:6 3:8h 3:9 2:7 2:10'],
+frusciante:['Frusciante','6ª mayor','9ª → tónica','Vibrato corto y dobles cuerdas','Sol callejero, funk triste','En La: F# de reposo, B con vibrato y bajás a A. Mezcla pentatónica mayor y menor.','2:5 2:7 1:7v 1:5'],
+perry:['Joe Perry','b7 y b5','b5 → 5ª (medio tono)','Bends secos y pre-bend','Carretera, cuero','En La: Eb → E dentro del blues, con G (b7) como apoyo.','4:5 5:7 5:6 5:5 6:8 6:5'],
+indie:['Indie','6ª mayor','6ª → 5ª','Notas largas con delay o chorus','Domingo, pijama','En La: F# → E sobre acordes maj7. El efecto hace el wing, no la mano.','1:2 1:0 2:2 2:0 3:2'],
+strokes:['The Strokes','5ª y b7','b7 → tónica (un tono)','Bend rápido y frases repetidas','Ciudad, noche','En La: G → A con bend de tono (B, traste 8). Mixolidio y pentatónica.','3:9 2:8b 1:5 2:8b'],
+metal:['Metal','b2 (b9)','tónica → b2 y vuelta (medio tono)','Bend agresivo, palm mute','Caos, ira','En La: A → Bb con bend y soltar, sobre A frigio. El tritono (Eb) suma tensión.','1:5h 1:5 1:6 1:5 2:6 2:5'],
+jazz:['Jazz fusión','9ª y 13ª','b9 → 9 → 3ª (enclosure)','Legato y deslices, sin vibrato','Misterio, elegancia','En La7: Bb B D C C# A. Rodeás la 3ª (C#) por arriba y por abajo, y resolvés a la tónica.','1:6 1:7 1:10 1:8 1:9 1:5']};
+function setWing(k){const w=WG[k];T.wing=parse(w[6]);tab(q('wing'),T.wing);act('wb',k);
+$('wi').innerHTML='<div class="f">🛑 Reposo: '+w[1]+'<br>🌀 Wing: '+w[2]+'<br>⚡ '+w[3]+'<br>💭 '+w[4]+'</div><p>💡 '+w[5]+'</p>'}
+btns('wb',Object.keys(WG),setWing,k=>WG[k][0]);
+/* Teoría y ejemplos */
+T.bach=parse('2:1 2:4 2:3 2:4 1:4 1:1 1:0 1:1 2:0 2:3 1:1 1:4 2:1 1:3 1:1 1:3 2:4 1:3 1:1 1:3');
+function place(m){let b=null;for(let s=6;s>=1;s--){const f=m-OPEN[s];if(f>=4&&f<=10&&(!b||Math.abs(f-7)<Math.abs(b.f-7)))b={s,f,m,x:''}}return b||{s:6,f:Math.max(0,m-40),m,x:''}}
+const DM={'B°7':11,'D°7':2,'F°7':5,'Ab°7':8};
+function setDim(k){let m=52;while(m%12!=DM[k])m++;T.dim=up([0,3,6,9,12].map(x=>place(m+x)));tab(q('dim'),T.dim);act('dmb',k)}
+btns('dmb',Object.keys(DM),setDim);
+const EX={
+moby:['Moby','Ostinato de arpegio en tríada bajo texturas lentas de piano y cuerdas: pocas notas y mucho aire.','ARPEGIO repetido, sin tensión: el interés viene del timbre y del silencio.','“Porcelain” y “Lift Me Up”.','Am en corcheas: A C E C, dos veces. Que suene inmóvil, sin apurarte.','3:2 2:1 1:0 2:1 3:2 2:1 1:0 2:1'],
+tron:['Daft Punk · Tron','En Tron: Legacy (2010) cuerdas y sintetizadores repiten ostinatos rítmicos, como una máquina, sobre armonías menores.','ARPEGIO + una 9ª como color, repetido con precisión.','“Overture” y “The Grid”.','Am(add9) ascendente: A C E B, y volvé a bajar. Tocalo clavado al metrónomo.','3:2 2:1 1:0 2:0 1:0 2:1'],
+stravinsky:['Stravinsky','Usa la escala octatónica (tono-semitono), que contiene dos disminuidos entrelazados. En “Augurios de primavera” repite un acorde de Mib7 apilado sobre una tríada de Mi mayor, con acentos irregulares.','TENSIÓN: octatónica de La = A°7 (A C Eb F#) + B°7 (B D F G#).','“La consagración de la primavera” y “Petrushka”.','Octatónica de La: A B C D Eb F F# G#. Marcá cuál nota pertenece a cada disminuido.','6:5 6:7 6:8 5:5 5:6 5:8 5:9 5:11 5:12'],
+strokes:['The Strokes','Guitarras limpias que entrelazan arpegios cortos y notas de paso, quietas en una posición, con púa alternada y casi sin adornos.','ARPEGIO + PASO (bordadura), todo en una posición.','“Reptilia” y “Someday”.','C B C E C: arpegio con bordadura. Púa alternada, sin distorsión.','3:2 2:1 2:0 2:1 1:0 2:1'],
+muse:['Muse','Bellamy lleva a la guitarra y al sinte los arpegios de piano de aire romántico (Rachmaninov, Chopin), con una nota alterada.','ARPEGIO + TENSIÓN: la 7ª mayor G# de la menor armónica.','“Butterflies and Hurricanes” (interludio de piano) y “Space Dementia”.','Am(maj7): A C E G# E C A. Fijate cómo el G# tira hacia La.','5:0 5:3 4:2 3:1 4:2 5:3 5:0'],
+giardini:['Giardini di Mirò','Guitarras que parten de arpegios envolventes y crecen hacia explosiones sonoras: quietud, tormenta y quietud otra vez.','ARPEGIO con cuerdas al aire (Asus2) + delay + crescendo.','El disco “Rise and Fall of Academic Drifting” (2001).','Asus2 con cuerdas al aire: A E A B E B A E. Empezá suave y crecé de a poco.','5:0 4:2 3:2 2:0 1:0 2:0 3:2 4:2']};
+function setEx(k){const e=EX[k];T.ex=k=='stravinsky'?up(parse(e[5])):parse(e[5]);tab(q('ex'),T.ex);act('exb',k);
+$('exi').innerHTML='<div class="f">🎯 Recurso: '+e[1]+'<br>🗺️ En el mapa: '+e[2]+'</div><p>🎧 Para escuchar: '+e[3]+'</p><p>✍️ Ejercicio: '+e[4]+'</p>'}
+btns('exb',Object.keys(EX),setEx,k=>EX[k][0]);
+/* General */
+document.addEventListener('click',e=>{const b=e.target.closest('[data-p]');if(b&&T[b.dataset.p])play(T[b.dataset.p],{btn:b,tab:q(b.dataset.p)})});
+$('stop').onclick=stop;$('bpm').oninput=()=>{$('bv').textContent=$('bpm').value};
 addEventListener('keydown',e=>{if(e.key==='Escape')stop()});
-window.addEventListener('scroll',()=>{
-  const d=document.documentElement;
-  document.querySelector('.progress').style.width=(d.scrollTop/(d.scrollHeight-d.clientHeight))*100+'%';
-});
-</script>
-</body>
-</html>
+document.querySelectorAll('.tab[data-t]').forEach(el=>{if(T[el.dataset.t])tab(el,T[el.dataset.t])});
+setPen();setChord('Am');showMode('eol');mkSeq();setWing('slash');setNps(6);setDim('B°7');setEx('moby');
+const K='npb-rutina',cks=[...document.querySelectorAll('.chk input')];let sv=[];
+try{sv=JSON.parse(localStorage.getItem(K)||'[]')}catch(e){}
+const upd=()=>{$('rc').textContent=cks.filter(c=>c.checked).length+' / 6'};
+cks.forEach((c,i)=>{c.checked=!!sv[i];c.onchange=()=>{upd();try{localStorage.setItem(K,JSON.stringify(cks.map(x=>x.checked)))}catch(e){}}});upd();
+</script></body></html>
+
